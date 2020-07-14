@@ -29,3 +29,4 @@
 
 			<!-- content -->
 			<section class="content">
+			<?php $this->view("layouts/components/_messages.php") ?>

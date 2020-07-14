@@ -1,20 +1,20 @@
-<div class="container">
-<div class="row">
-	<div class="col-md-3">
-		<a class="btn btn-primary" href="<?= base_url('user/tambah') ?>">Add User</a>
-	</div>
-</div>
+
 <div class="row">
 	<div class="col-md-6">
-		<form method="POST" action="<?= base_url('user/simpan') ?>">
+		<form method="POST" action="<?= $url ?>">
 			<label>Username</label>
-			<input type="text" name="username" class="form-control">
+			<input type="text" name="username" class="form-control" value="<?= isset($user)?$user->username:null ?>" required="">
+			<?php if(isset($user)): ?>
+				<input type="hidden" name="id" value="<?= isset($user)?$user->id:null ?>">
+			<?php endif; ?>
+			<label>Nama</label>
+			<input type="text" name="nama" class="form-control" required="" value="<?= isset($user)?$user->nama:null ?>">
 			<label>Password</label>
-			<input type="password" name="password" class="form-control">
+			<input type="password" name="password" class="form-control" required="">
 			<label>Level</label>
-			<select name="level" class="form-control">
+			<select name="level" class="form-control" required="">
 				<?php foreach(userLevel() as $level => $desc): ?>
-				<option value="<?= $level ?>"><?= $desc ?></option>
+				<option value="<?= $level ?>" <?= isset($user)?$user->level==$level?$user->level:null:null ?>><?= $desc ?></option>
 			<?php endforeach; ?>
 			</select>
 			<div class="row">

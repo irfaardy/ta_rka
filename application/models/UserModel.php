@@ -10,6 +10,13 @@ class UserModel  extends CI_Model {
 		$this->db->where($param);
 		return $this->db->get($this->table)->row();
 	}
+	public function update($where){
+
+		
+		$params = $this->build_params();
+		$this->db->where($where);
+		return $this->db->update($this->table,$params);
+	}
 	public function create(){
 		$params = $this->build_params();
 		try{
@@ -22,9 +29,10 @@ class UserModel  extends CI_Model {
 
 	private function build_params(){
 			 $params = 	[
-                         'username' 	=> $this->session->userdata('username'),
-                         'nama' 		=> $this->session->userdata('nama'),
-                         'level' 		=> $this->session->userdata('level'),
+                         'username' 	=> $this->input->post('username'),
+                         'nama' 		=> $this->input->post('nama'),
+                         'password' 	=> bcrypt($this->input->post('password')),
+                         'level' 		=> $this->input->post('level'),
                      	];
              return $params;
 		}

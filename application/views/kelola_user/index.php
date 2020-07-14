@@ -10,6 +10,7 @@
 			<thead>
 				<th>Username</th>
 				<th>Nama</th>
+				<th>Level</th>
 				<th>Aksi</th>
 			</thead>
 			<tbody>
@@ -17,7 +18,8 @@
 				<tr>
 					<td><?= $u->username ?></td>
 					<td><?= $u->nama ?></td>
-					<td><a class="btn btn-warning" href="#">Ubah</a> <a class="btn btn-primary" href="#">Hapus</a></td>
+					<td><?= userLevel($u->level) ?></td>
+					<td><a class="btn btn-warning" href="<?= base_url('user/ubah?id=').$u->id ?>">Ubah</a> <a class="btn btn-danger" href="#">Hapus</a></td>
 				</tr>
 			<?php endforeach;?>
 			</tbody>

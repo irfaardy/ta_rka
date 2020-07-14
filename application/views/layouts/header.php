@@ -7,4 +7,11 @@
 	<?php include('assets/css.php') ?>
 	<!-- ENDCSS -->
 </head>
-<body>
+<body class="hold-transition sidebar-mini layout-fixed">
+	<!-- wrapper -->
+	<div class="wrapper">
+		<?php $this->view("layouts/components/_navbar"); ?>
+		<?php $this->view("layouts/components/_sidebar"); ?>
+
+		<!-- content-wrapper -->
+		<div class="content-wrapper">

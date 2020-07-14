@@ -1,0 +1,3 @@
+Notes
+1. no sarmut integer apa varchar?
+2. kode rekening dimasukin sendiri apa Auto Increments

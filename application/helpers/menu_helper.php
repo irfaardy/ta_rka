@@ -6,12 +6,12 @@ function admin_menus() {
     array(
       'text' => 'Kelola User',
       'icon' => 'fas fa-user',
-      'url'  => '/user'
+      'url'  => base_url('/users')
     ),
     array(
       'text' => 'Logout',
       'icon' => 'fas fa-sign-out-alt',
-      'url'  => '/logout?token='.$CI->session->login_token
+      'url'  => base_url('/logout?token='.$CI->session->login_token)
     ),
   ];
 

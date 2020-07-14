@@ -24,7 +24,8 @@ class Auth{
 		if(password_verify($password, $get->password)) {
 			$user_datas = array(
 			        'user_id'  => $get->id,
-			        'logged_in' => TRUE
+			        'logged_in' => TRUE,
+			        'login_token' => sha1($get->id.time().mt_rand(1000,9999))
 			);
 			$this->CI->session->sess_regenerate();
 			$this->CI->session->set_userdata($user_datas);
@@ -67,18 +68,29 @@ class Auth{
      * @return void
      */
 	public function logout(){
+		if(empty($this->CI->input->get('token'))){
+			return redirect($_SERVER['HTTP_REFERER']);
+		}
+
+		if($this->CI->session->login_token === $this->CI->input->get('token')){
+			$this->destroy();
+		} else{
+			return redirect($_SERVER['HTTP_REFERER']);
+		}
+	}
+
+	private function destroy(){
 		$this->CI->session->sess_regenerate(TRUE);
 		$this->CI->session->sess_destroy();
 		return redirect(base_url('login'));
 	}
-
 	/** 
 	* Mencegah guest untuk mengakses halaman
 	* @return void
 	*/
 	public function protect(){
 		if(!$this->check()){
-			$this->logout();
+			$this->destroy();
 		}
 	}
 }

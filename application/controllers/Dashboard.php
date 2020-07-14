@@ -5,13 +5,13 @@ class Dashboard extends CI_Controller {
 
 	function __construct(){
 		parent::__construct();
-		
+
 		$this->auth->protect();
 	}
 	public function index()
 	{
-
-		$this->load->template('dashboard/index');
+		$params = array("pageTitle" => "Dashboard");
+		$this->load->template('dashboard/index', $params);
 	}
-	
+
 }

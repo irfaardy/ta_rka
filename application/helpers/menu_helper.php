@@ -9,6 +9,11 @@ function admin_menus() {
       'url'  => '/user'
     ),
     array(
+      'text' => 'Kelola Sasaran Mutu',
+      'icon' => 'fas fa-list',
+      'url'  => '/sasaranmutu'
+    ),
+    array(
       'text' => 'Logout',
       'icon' => 'fas fa-sign-out-alt',
       'url'  => '/logout?token='.$CI->session->login_token

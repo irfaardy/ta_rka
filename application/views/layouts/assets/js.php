@@ -8,8 +8,6 @@
 </script>
 <!-- Bootstrap 4 -->
 <script src="<?= assets('plugins/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
-<!-- ChartJS -->
-<script src="<?= assets('plugins/chart.js/Chart.min.js') ?>"></script>
 <!-- Sparkline -->
 <script src="<?= assets('plugins/sparklines/sparkline.js') ?>"></script>
 <!-- jQuery Knob Chart -->

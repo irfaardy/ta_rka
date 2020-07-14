@@ -4,8 +4,6 @@
 <link rel="stylesheet" href="<?= assets('plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css') ?>">
 <!-- iCheck -->
 <link rel="stylesheet" href="<?= assets('plugins/icheck-bootstrap/icheck-bootstrap.min.css') ?> ">
-<!-- JQVMap -->
-<link rel="stylesheet" href="<?= assets('plugins/jqvmap/jqvmap.min.css') ?>">
 <!-- Theme style -->
 <link rel="stylesheet" href="<?= assets('css/adminlte.min.css') ?>">
 <!-- overlayScrollbars -->

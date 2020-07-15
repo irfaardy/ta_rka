@@ -58,7 +58,7 @@ $autoload['packages'] = array();
 |
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
-$autoload['libraries'] = array('database', 'session', 'auth');
+$autoload['libraries'] = array('database', 'session', 'auth', 'user_agent');
 
 /*
 | -------------------------------------------------------------------
@@ -89,7 +89,7 @@ $autoload['drivers'] = array();
 |
 |	$autoload['helper'] = array('url', 'file');
 */
-$autoload['helper'] = array('url', 'form', 'file','password','assets','user', 'menu');
+$autoload['helper'] = array('url', 'form', 'file','password','assets','user', 'menu', 'fields');
 
 /*
 | -------------------------------------------------------------------
@@ -132,4 +132,4 @@ $autoload['language'] = array();
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
-$autoload['model'] = array('UserModel' => 'user');
+$autoload['model'] = array('UserModel' => 'user', 'SasaranMutuModel' => 'sasaran_mutu');

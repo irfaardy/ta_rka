@@ -15,6 +15,11 @@ function admin_menus() {
       'url'  => base_url('/mataanggaran')
     ),
     array(
+      'text' => 'Kelola Sasaran Mutu',
+      'icon' => 'fas fa-list',
+      'url'  => '/sasaranmutu'
+    ),
+    array(
       'text' => 'Logout',
       'icon' => 'fas fa-sign-out-alt',
       'url'  => base_url('/logout?token='.$CI->session->login_token)

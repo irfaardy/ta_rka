@@ -16,7 +16,7 @@ class Users extends CI_Controller {
 
 	public function create()
 	{
-		
+
 		$this->load->template('kelola_user/form',['title' => 'Tambah User','url' => base_url('user/simpan')]);
 	}
 	public function edit()
@@ -28,6 +28,7 @@ class Users extends CI_Controller {
 	public function update()
 	{	
 		$this->check_user();
+
 		$this->user->update(['id' => $this->input->post('id')]);
 		$this->session->set_flashdata('success','Sukses menyimpan data.');
 		return redirect(base_url('/users'));
@@ -43,6 +44,7 @@ class Users extends CI_Controller {
 			return redirect(base_url('/users/tambah'));
 		}
 	}
+
 
 	public function delete()
 	{	
@@ -61,5 +63,5 @@ class Users extends CI_Controller {
 		} 
 		return $user;
 	}
-	
+
 }

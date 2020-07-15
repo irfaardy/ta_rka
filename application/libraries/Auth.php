@@ -105,10 +105,17 @@ class Auth{
 			$this->destroy();
 		} else{
 		   if(!empty($hakAksesId)){
-				if($this->user()->level != $hakAksesId) {
-					$this->CI->session->set_flashdata('warning','Anda tidak dapat mengakses halaman ini.');
-					return redirect($_SERVER['HTTP_REFERER']);
-				} 
+			   	 if(is_array($hakAksesId)){
+			   	 	if(!in_array($this->user()->level, $hakAksesId)) { 
+						$this->CI->session->set_flashdata('warning','Anda tidak dapat mengakses halaman ini.');
+						return redirect($_SERVER['HTTP_REFERER']);
+					} 
+			   	 }else{
+					if($this->user()->level != $hakAksesId) {
+						$this->CI->session->set_flashdata('warning','Anda tidak dapat mengakses halaman ini.');
+						return redirect($_SERVER['HTTP_REFERER']);
+					} 
+				}
 			}
 		}
 	}

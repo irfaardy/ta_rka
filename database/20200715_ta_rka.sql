@@ -1,0 +1,1 @@
+ALTER TABLE `tb_mata_anggaran` CHANGE `kode_rekening` `kode_rekening` VARCHAR(25) NOT NULL;

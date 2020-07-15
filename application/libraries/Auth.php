@@ -49,6 +49,18 @@ class Auth{
 	}
 
 	/**
+     * Cek hak akses.
+     *
+     * @return mixed
+     */
+	public function hakAkses($hakAksesId){
+		if($this->user()->level != $hakAksesId) {
+			$this->CI->session->set_flashdata('warning','Anda tidak dapat mengakses halaman ini.');
+			return redirect($_SERVER['HTTP_REFERER']);
+		} 
+	}
+
+	/**
      * Ambil data user sesuai dengan id yang login.
      *
      * @return mixed
@@ -88,9 +100,23 @@ class Auth{
 	* Mencegah guest untuk mengakses halaman
 	* @return void
 	*/
-	public function protect(){
+	public function protect($hakAksesId = null){
 		if(!$this->check()){
 			$this->destroy();
+		} else{
+		   if(!empty($hakAksesId)){
+			   	 if(is_array($hakAksesId)){
+			   	 	if(!in_array($this->user()->level, $hakAksesId)) { 
+						$this->CI->session->set_flashdata('warning','Anda tidak dapat mengakses halaman ini.');
+						return redirect($_SERVER['HTTP_REFERER']);
+					} 
+			   	 }else{
+					if($this->user()->level != $hakAksesId) {
+						$this->CI->session->set_flashdata('warning','Anda tidak dapat mengakses halaman ini.');
+						return redirect($_SERVER['HTTP_REFERER']);
+					} 
+				}
+			}
 		}
 	}
 }

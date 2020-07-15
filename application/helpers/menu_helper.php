@@ -10,12 +10,12 @@ function admin_menus() {
     ),
     array(
       'text' => 'Kelola User',
-      'icon' => 'fas fa-user',
+      'icon' => 'fas fa-users',
       'url'  => base_url('/users')
     ),
     array(
       'text' => 'Kelola Mata Anggaran',
-      'icon' => 'fas fa-user',
+      'icon' => 'fas fa-list',
       'url'  => base_url('/mataanggaran')
     ),
     array(

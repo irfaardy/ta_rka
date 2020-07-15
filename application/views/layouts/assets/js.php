@@ -6,6 +6,14 @@
 <script>
   $.widget.bridge('uibutton', $.ui.button)
 </script>
+<!-- Alert -->
+<script type="text/javascript">
+$(document).ready(function() {
+	$("[auto-close-alert]").fadeTo(3000, 500).slideUp(300, function(){
+	    $("[auto-close-alert]").slideUp(300);
+	});
+});
+</script>
 <!-- Bootstrap 4 -->
 <script src="<?= assets('plugins/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
 <!-- Sparkline -->

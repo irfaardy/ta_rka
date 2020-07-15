@@ -1,7 +1,5 @@
 <!-- Start Login Form -->
-<?php if(!empty($this->session->flashdata())){ ?>
-	<div class="alert alert-danger"><?= $this->session->flashdata('fail') ?></div>
-<?php } ?>
+<?php $this->view("layouts/components/_messages.php") ?>
 <form action="<?= base_url('login/auth') ?>" method="POST">
 	<div class="input-group mb-3">
     <input type="text" name="username" class="form-control py-4" required="" placeholder="Username">

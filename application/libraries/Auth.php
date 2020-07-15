@@ -56,7 +56,7 @@ class Auth{
 	public function hakAkses($hakAksesId){
 		if($this->user()->level != $hakAksesId) {
 			$this->CI->session->set_flashdata('warning','Anda tidak dapat mengakses halaman ini.');
-			return redirect($_SERVER['HTTP_REFERER']);
+			return redirect(array_key_exists('HTTP_REFERER',$_SERVER)?$_SERVER['HTTP_REFERER']:base_url('/'));
 		} 
 	}
 
@@ -108,12 +108,12 @@ class Auth{
 			   	 if(is_array($hakAksesId)){
 			   	 	if(!in_array($this->user()->level, $hakAksesId)) { 
 						$this->CI->session->set_flashdata('warning','Anda tidak dapat mengakses halaman ini.');
-						return redirect($_SERVER['HTTP_REFERER']);
+						return redirect(array_key_exists('HTTP_REFERER',$_SERVER)?$_SERVER['HTTP_REFERER']:base_url('/'));
 					} 
 			   	 }else{
 					if($this->user()->level != $hakAksesId) {
 						$this->CI->session->set_flashdata('warning','Anda tidak dapat mengakses halaman ini.');
-						return redirect($_SERVER['HTTP_REFERER']);
+						return redirect(array_key_exists('HTTP_REFERER',$_SERVER)?$_SERVER['HTTP_REFERER']:base_url('/'));
 					} 
 				}
 			}

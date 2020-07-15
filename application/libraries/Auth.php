@@ -49,6 +49,18 @@ class Auth{
 	}
 
 	/**
+     * Cek hak akses.
+     *
+     * @return mixed
+     */
+	public function hakAkses($hakAksesId){
+		if($this->user()->level != $hakAksesId) {
+			$this->CI->session->set_flashdata('warning','Anda tidak dapat mengakses halaman ini.');
+			return redirect($_SERVER['HTTP_REFERER']);
+		} 
+	}
+
+	/**
      * Ambil data user sesuai dengan id yang login.
      *
      * @return mixed

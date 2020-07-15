@@ -17,7 +17,22 @@ function admin_menus() {
     array(
       'text' => 'Kelola Sasaran Mutu',
       'icon' => 'fas fa-list',
-      'url'  => '/sasaranmutu'
+      'url'  => base_url('/sasaranmutu')
+    ),
+    array(
+      'text' => 'Kegiatan RKA',
+      'icon' => 'fas fa-calendar',
+      'url'  => base_url('#')
+    ),
+    array(
+      'text' => 'Persetujuan RKA',
+      'icon' => 'fas fa-calendar-check',
+      'url'  => base_url('#')
+    ),
+    array(
+      'text' => 'RDDKF',
+      'icon' => 'fas fa-bars',
+      'url'  => base_url('#')
     ),
     array(
       'text' => 'Logout',

@@ -16,13 +16,13 @@ class MataAnggaran extends CI_Controller {
 	}
 
 	function tambah() {
-		$params = array("title" => "Mata Anggaran", "obj" => null, "action" => base_url("/mataanggaran/save"));
+		$params = array("title" => "Mata Anggaran", "obj" => null, "action" => base_url("/MataAnggaran/save"));
 		$this->load->template('mata_anggaran/form', $params);
 	}
 
 	function edit($id) {
 		$obj = $this->mata_anggaran->get($id);
-		$params = array("title" => "Mata Anggaran", "obj" => $obj, "action" => base_url("/mataanggaran/update/$id"));
+		$params = array("title" => "Mata Anggaran", "obj" => $obj, "action" => base_url("/MataAnggaran/update/$id"));
 		$this->load->template('mata_anggaran/form', $params);
 	}
 
@@ -30,10 +30,10 @@ class MataAnggaran extends CI_Controller {
 		if($this->mata_anggaran->create()){
 			$this->session->set_flashdata('success','Berhasil Menambahkan data Mata Anggaran.');
 
-			return redirect(base_url('/mataanggaran'));
+			return redirect(base_url('/MataAnggaran'));
 		} else{
 			$this->session->set_flashdata('fail','Gagal menambahkan data Mata Anggaran.');
-			return redirect(base_url('/mataanggaran/tambah'));
+			return redirect(base_url('/MataAnggaran/tambah'));
 		}
 	}
 
@@ -41,10 +41,10 @@ class MataAnggaran extends CI_Controller {
 		if($this->mata_anggaran->update($id)){
 			$this->session->set_flashdata('success','Berhasil Mengubah data Mata Anggaran.');
 
-			return redirect(base_url('/mataanggaran'));
+			return redirect(base_url('/MataAnggaran'));
 		} else{
 			$this->session->set_flashdata('fail','Gagal Mengubah data Mata Anggaran.');
-			return redirect(base_url('/mataanggaran/tambah'));
+			return redirect(base_url('/MataAnggaran/tambah'));
 		}
 	}
 
@@ -52,10 +52,10 @@ class MataAnggaran extends CI_Controller {
 		if($this->mata_anggaran->delete($id)){
 			$this->session->set_flashdata('success','Berhasil Menghapus data Mata Anggaran.');
 
-			return redirect(base_url('/mataanggaran'));
+			return redirect(base_url('/MataAnggaran'));
 		} else{
 			$this->session->set_flashdata('fail','Gagal Menghapus data Mata Anggaran.');
-			return redirect(base_url('/mataanggaran'));
+			return redirect(base_url('/MataAnggaran'));
 		}
 	}
 

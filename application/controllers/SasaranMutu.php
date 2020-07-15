@@ -15,13 +15,13 @@ class SasaranMutu extends CI_Controller {
 	}
 
 	function tambah() {
-		$params = array("title" => "Sasaran Mutu", "obj" => null, "action" => "/sasaranmutu/save");
+		$params = array("title" => "Sasaran Mutu", "obj" => null, "action" => "/SasaranMutu/save");
 		$this->load->template('sasaran_mutu/form', $params);
 	}
 
 	function edit($id) {
 		$obj = $this->sasaran_mutu->get($id);
-		$params = array("title" => "Sasaran Mutu", "obj" => $obj, "action" => "/sasaranmutu/update/$id");
+		$params = array("title" => "Sasaran Mutu", "obj" => $obj, "action" => "/SasaranMutu/update/$id");
 		$this->load->template('sasaran_mutu/form', $params);
 	}
 
@@ -29,10 +29,10 @@ class SasaranMutu extends CI_Controller {
 		if($this->sasaran_mutu->create()){
 			$this->session->set_flashdata('success','Berhasil Menambahkan data sasaran mutu.');
 
-			return redirect(base_url('/sasaranmutu'));
+			return redirect(base_url('/SasaranMutu'));
 		} else{
 			$this->session->set_flashdata('fail','Gagal menambahkan data sasaran mutu.');
-			return redirect(base_url('/sasaranmutu/tambah'));
+			return redirect(base_url('/SasaranMutu/tambah'));
 		}
 	}
 
@@ -40,10 +40,10 @@ class SasaranMutu extends CI_Controller {
 		if($this->sasaran_mutu->update($id)){
 			$this->session->set_flashdata('success','Berhasil Mengubah data sasaran mutu.');
 
-			return redirect(base_url('/sasaranmutu'));
+			return redirect(base_url('/SasaranMutu'));
 		} else{
 			$this->session->set_flashdata('fail','Gagal Mengubah data sasaran mutu.');
-			return redirect(base_url('/sasaranmutu/tambah'));
+			return redirect(base_url('/SasaranMutu/tambah'));
 		}
 	}
 
@@ -51,10 +51,10 @@ class SasaranMutu extends CI_Controller {
 		if($this->sasaran_mutu->delete($id)){
 			$this->session->set_flashdata('success','Berhasil Menghapus data sasaran mutu.');
 
-			return redirect(base_url('/sasaranmutu'));
+			return redirect(base_url('/SasaranMutu'));
 		} else{
 			$this->session->set_flashdata('fail','Gagal Menghapus data sasaran mutu.');
-			return redirect(base_url('/sasaranmutu'));
+			return redirect(base_url('/SasaranMutu'));
 		}
 	}
 

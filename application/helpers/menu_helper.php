@@ -18,7 +18,7 @@ function admin_menus() {
     array(
       'text' => 'Kelola Mata Anggaran',
       'icon' => 'fas fa-list',
-      'url'  => base_url('/mataanggaran'),
+      'url'  => base_url('/MataAnggaran'),
       'user' => [4]
     ),
     array(

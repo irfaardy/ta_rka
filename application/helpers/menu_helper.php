@@ -12,7 +12,13 @@ function admin_menus() {
     array(
       'text' => 'Kelola User',
       'icon' => 'fas fa-users',
-      'url'  => base_url('/users'),
+      'url'  => base_url('/Users'),
+      'user' => [5]
+    ),
+    array(
+      'text' => 'Kelola Jurusan',
+      'icon' => 'fas fa-university',
+      'url'  => base_url('/Jurusan'),
       'user' => [5]
     ),
     array(

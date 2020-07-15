@@ -7,6 +7,13 @@ function sasaranMutuFields($params = null) {
     return $params;
   }
 }
+function jurusanFields($params = null) {
+  if ($params == null) {
+    return array('nama' => null);
+  }else {
+    return $params;
+  }
+}
 
 function mataAnggaranFields($params = null) {
   if ($params == null) {

@@ -8,10 +8,10 @@
         <div class="card-body">
           <form class="" action="<?php echo $action ?>" method="post">
             <!-- initial object (null or not) -->
-            <?php $sasaran_mutu = sasaranMutuFields($obj); ?>
+            <?php $jurusan = jurusanFields($obj); ?>
 
             <!-- include the list fields -->
-            <?php $this->view("sasaran_mutu/_form", $sasaran_mutu) ?>
+            <?php $this->view("jurusan/_form", $jurusan) ?>
 
             <hr class="my-4">
             <div class="form-group text-right">

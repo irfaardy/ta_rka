@@ -27,6 +27,14 @@ class Jurusan extends CI_Controller {
 	}
 
 	function save() {
+		$validator = $this->form_validation;
+		$validator->set_rules($this->jurusan->rules());
+
+		if(!$validator->run()){
+			$this->session->set_flashdata('fail','Gagal menambahkan data Jurusan. '.validation_errors());
+			return redirect(base_url('/jurusan/tambah'));
+		}
+
 		if($this->jurusan->create()){
 			$this->session->set_flashdata('success','Berhasil Menambahkan data Jurusan.');
 

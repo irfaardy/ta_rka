@@ -1,6 +1,6 @@
 <?php if ($obj != null): ?>
-  <div class="table-responsive mt-5">
-    <table class="table table-bordered table-striped">
+  <div class="mt-5">
+    <table class="table table-bordered table-striped display nowrap" data-table>
       <thead>
         <tr>
           <th class="text-nowrap">No</th>
@@ -37,11 +37,11 @@
             <td><?php echo ($sasaran_mutu->tw4) ? $sasaran_mutu->tw4 : "-"; ?></td>
             <!-- actions -->
             <td style="min-width: 200px;">
-              <a href="<?php echo base_url('/sasaranmutu/edit/'.$sasaran_mutu->no_sarmut) ?>" class="btn btn-xs btn-warning">
+              <a href="<?php echo base_url('/SasaranMutu/edit/'.$sasaran_mutu->no_sarmut) ?>" class="btn btn-xs btn-warning">
                 <i class="fas fa-edit fa-fw"></i>
                 Edit
               </a>
-              <button class="btn btn-xs btn-danger" data-action="<?php echo base_url('/sasaranmutu/delete/'.$sasaran_mutu->no_sarmut) ?>" data-delete>
+              <button class="btn btn-xs btn-danger" data-action="<?php echo base_url('/SasaranMutu/delete/'.$sasaran_mutu->no_sarmut) ?>" data-delete>
                 <i class="fas fa-trash fa-fw"></i>
                 Hapus
               </a>

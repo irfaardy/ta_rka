@@ -6,7 +6,7 @@ class SasaranMutu extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 
-		$this->auth->protect();
+		$this->auth->protect([3,5]);
 	}
 	public function index() {
 		$sasaran_mutu = $this->sasaran_mutu->getAll();

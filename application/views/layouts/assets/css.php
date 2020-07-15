@@ -8,5 +8,7 @@
 <link rel="stylesheet" href="<?= assets('css/adminlte.min.css') ?>">
 <!-- overlayScrollbars -->
 <link rel="stylesheet" href="<?= assets('plugins/overlayScrollbars/css/OverlayScrollbars.min.css') ?>">
+<!-- dataTable -->
+<link rel="stylesheet" href="<?= assets('plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') ?>">
 <!-- Google Font: Source Sans Pro -->
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">

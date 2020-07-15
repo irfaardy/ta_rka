@@ -27,8 +27,11 @@ $(document).ready(function() {
 <script src="<?= assets('plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') ?>"></script>
 <!-- overlayScrollbars -->
 <script src="<?= assets('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') ?>"></script>
+<!-- dataTable -->
+<script src="<?= assets('plugins/datatables/jquery.dataTables.min.js') ?>"></script>
+<script src="<?= assets('plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') ?>"></script>
 <!-- AdminLTE App -->
 <script src="<?= assets('js/adminlte.js') ?>"></script>
 
 <!-- Custom JS -->
-<script src="<?= assets('js/button_actions.js') ?>"></script>
+<script src="<?= assets('js/custom.js') ?>"></script>

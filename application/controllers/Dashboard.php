@@ -10,7 +10,7 @@ class Dashboard extends CI_Controller {
 	}
 	public function index()
 	{
-		$params = array("pageTitle" => "Dashboard");
+		$params = array("title" => "Dashboard");
 		$this->load->template('dashboard/index', $params);
 	}
 

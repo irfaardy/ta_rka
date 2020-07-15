@@ -16,7 +16,7 @@ class Users extends CI_Controller {
 
 	public function create()
 	{
-		
+
 		$this->load->template('kelola_user/form',['title' => 'Tambah User','url' => base_url('user/simpan')]);
 	}
 	public function edit()
@@ -30,7 +30,7 @@ class Users extends CI_Controller {
 	}
 
 	public function update()
-	{	
+	{
 		$user = $this->user->getBy(['id' => $this->input->post('id')]);
 		if(empty($user)){
 			$this->session->set_flashdata('fail','User tidak ditemukan.');
@@ -51,5 +51,5 @@ class Users extends CI_Controller {
 			return redirect(base_url('/users/tambah'));
 		}
 	}
-	
+
 }

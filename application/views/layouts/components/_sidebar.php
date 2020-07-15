@@ -19,14 +19,16 @@
         <!-- Add icons to the links using the .nav-icon class
              with font-awesome or any other icon font library -->
         <?php foreach (admin_menus() as $menu): ?>
-          <li class="nav-item">
-            <a href="<?php echo $menu['url']; ?>" class="nav-link">
-              <i class="nav-icon <?php echo $menu['icon']; ?>"></i>
-              <p>
-                <?php echo $menu['text']; ?>
-              </p>
-            </a>
-          </li>
+          <?php if (in_array(AuthData()->level, $menu['user'])): ?>
+            <li class="nav-item">
+              <a href="<?php echo $menu['url']; ?>" class="nav-link">
+                <i class="nav-icon <?php echo $menu['icon']; ?>"></i>
+                <p>
+                  <?php echo $menu['text']; ?>
+                </p>
+              </a>
+            </li>
+          <?php endif; ?>
         <?php endforeach; ?>
 
       </ul>

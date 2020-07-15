@@ -23,10 +23,6 @@
 
 	            <h1 class="m-0 text-dark"><?= !empty($title) ? $title:"Dashboard" ?></h1>
 
-	            <h1 class="m-0 text-dark">
-								<i class="fas fa-dot-circle fa-fw" style="font-size: 18px; position: relative; bottom: 3px;"></i>
-								<?php echo $title ?>
-							</h1>
 
 	          </div><!-- /.col -->
 	        </div><!-- /.row -->

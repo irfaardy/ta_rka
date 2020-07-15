@@ -27,6 +27,7 @@ class SasaranMutuModel extends CI_Model {
     $params = $this->input->post();
 
 		try{
+      $this->db->where('no_sarmut', $id);
 			$this->db->update($this->table, $params);
 			return true;
 		} catch(\Exception $e){

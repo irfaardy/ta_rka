@@ -1,7 +1,7 @@
 <div class="form-group">
   <div class="row">
     <div class="col-3">
-      <label for="">sarmut</label>
+      <label for="">Sasaran Mutu</label>
     </div>
     <div class="col-9">
       <input type="text" class="form-control" name="sarmut" value="<?php echo $sarmut ?>" />
@@ -11,7 +11,7 @@
 <div class="form-group">
   <div class="row">
     <div class="col-3">
-      <label for="">indikator</label>
+      <label for="">Indikator</label>
     </div>
     <div class="col-9">
       <input type="text" class="form-control" name="indikator" value="<?php echo $indikator ?>" />
@@ -21,7 +21,7 @@
 <div class="form-group">
   <div class="row">
     <div class="col-3">
-      <label for="">turunan</label>
+      <label for="">Turunan</label>
     </div>
     <div class="col-9">
       <input type="text" class="form-control" name="turunan" value="<?php echo $turunan ?>" />
@@ -31,27 +31,77 @@
 <div class="form-group">
   <div class="row">
     <div class="col-3">
-      <label for="">bobot</label>
+      <label for="">Bobot (%)</label>
     </div>
     <div class="col-9">
-      <input type="text" class="form-control" name="bobot" value="<?php echo $bobot ?>" />
+      <input type="text" class="form-control" name="bobot" value="<?php echo $bobot ?>" maxlength="3" />
     </div>
   </div>
 </div>
 <div class="form-group">
   <div class="row">
     <div class="col-3">
-      <label for="">target</label>
+      <label for="">Data Akhir Tahun (%)</label>
     </div>
     <div class="col-9">
-      <input type="text" class="form-control" name="target" value="<?php echo $target ?>" />
+      <input type="text" class="form-control" name="d_akhir_tahun" value="<?php echo $d_akhir_tahun ?>" maxlength="3" />
     </div>
   </div>
 </div>
 <div class="form-group">
   <div class="row">
     <div class="col-3">
-      <label for="">akar_masalah</label>
+      <label for="">Target (%)</label>
+    </div>
+    <div class="col-9">
+      <input type="text" class="form-control" name="target" value="<?php echo $target ?>" maxlength="3"/>
+    </div>
+  </div>
+</div>
+<div class="form-group">
+  <div class="row">
+    <div class="col-3">
+      <label for="">Tw1</label>
+    </div>
+    <div class="col-9">
+      <input type="text" class="form-control" name="tw1" value="<?php echo $tw1 ?>" maxlength="3" />
+    </div>
+  </div>
+</div>
+<div class="form-group">
+  <div class="row">
+    <div class="col-3">
+      <label for="">Tw2</label>
+    </div>
+    <div class="col-9">
+      <input type="text" class="form-control" name="tw2" value="<?php echo $tw2 ?>" maxlength="3" />
+    </div>
+  </div>
+</div>
+<div class="form-group">
+  <div class="row">
+    <div class="col-3">
+      <label for="">Tw3</label>
+    </div>
+    <div class="col-9">
+      <input type="text" class="form-control" name="tw3" value="<?php echo $tw3 ?>" maxlength="3" />
+    </div>
+  </div>
+</div>
+<div class="form-group">
+  <div class="row">
+    <div class="col-3">
+      <label for="">Tw4</label>
+    </div>
+    <div class="col-9">
+      <input type="text" class="form-control" name="tw4" value="<?php echo $tw4 ?>" maxlength="3" />
+    </div>
+  </div>
+</div>
+<div class="form-group">
+  <div class="row">
+    <div class="col-3">
+      <label for="">Akar Masalah</label>
     </div>
     <div class="col-9">
       <input type="text" class="form-control" name="akar_masalah" value="<?php echo $akar_masalah ?>" />
@@ -61,60 +111,10 @@
 <div class="form-group">
   <div class="row">
     <div class="col-3">
-      <label for="">tkp</label>
+      <label for="">Tkp</label>
     </div>
     <div class="col-9">
       <input type="text" class="form-control" name="tkp" value="<?php echo $tkp ?>" />
-    </div>
-  </div>
-</div>
-<div class="form-group">
-  <div class="row">
-    <div class="col-3">
-      <label for="">d_akhir_tahun</label>
-    </div>
-    <div class="col-9">
-      <input type="text" class="form-control" name="d_akhir_tahun" value="<?php echo $d_akhir_tahun ?>" />
-    </div>
-  </div>
-</div>
-<div class="form-group">
-  <div class="row">
-    <div class="col-3">
-      <label for="">tw1</label>
-    </div>
-    <div class="col-9">
-      <input type="text" class="form-control" name="tw1" value="<?php echo $tw1 ?>" />
-    </div>
-  </div>
-</div>
-<div class="form-group">
-  <div class="row">
-    <div class="col-3">
-      <label for="">tw2</label>
-    </div>
-    <div class="col-9">
-      <input type="text" class="form-control" name="tw2" value="<?php echo $tw2 ?>" />
-    </div>
-  </div>
-</div>
-<div class="form-group">
-  <div class="row">
-    <div class="col-3">
-      <label for="">tw3</label>
-    </div>
-    <div class="col-9">
-      <input type="text" class="form-control" name="tw3" value="<?php echo $tw3 ?>" />
-    </div>
-  </div>
-</div>
-<div class="form-group">
-  <div class="row">
-    <div class="col-3">
-      <label for="">tw4</label>
-    </div>
-    <div class="col-9">
-      <input type="text" class="form-control" name="tw4" value="<?php echo $tw4 ?>" />
     </div>
   </div>
 </div>

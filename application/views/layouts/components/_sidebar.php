@@ -9,7 +9,7 @@
       </div>
       <div class="info">
         <!-- username -->
-        <a href="#" class="d-block"><?= AuthData()->nama ?></a>
+        <a href="#" class="d-block"><?= userLevel(AuthData()->level) ?></a>
       </div>
     </div>
 

@@ -46,16 +46,21 @@ class Users extends CI_Controller {
 	}
 
 
-	public function delete()
+	public function delete($id)
 	{	
-		$this->check_user();
-		$this->user->delete(['id' => $this->input->post('id')]);
+		$this->check_user($id);
+		$this->user->delete(['id' => $id]);
 		$this->session->set_flashdata('success','Sukses menghapus data.');
 		return redirect(base_url('/users'));
 	}
 
-	private function check_user(){
-		$input = empty($this->input->post('id')) ?$this->input->get('id'):$this->input->post('id');
+	private function check_user($id=null){
+		if($id == null){
+			$input = empty($this->input->post('id')) ?$this->input->get('id'):$this->input->post('id');
+		} else{
+			$input = $id;
+		}
+		
 		$user = $this->user->getBy(['id' => $input ]);
 		if(empty($user)){
 			$this->session->set_flashdata('fail','User tidak ditemukan.');

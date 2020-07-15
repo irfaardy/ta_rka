@@ -2,7 +2,7 @@
 /**
  * Auth Library
  * @author	Irfa Ardiasnyah
- * @link	https://github.com/irfaardy
+ * @link	https://github.com/irfaardy/codeigniter3-auth
  * @version	1.0.0
  */
 class Auth{

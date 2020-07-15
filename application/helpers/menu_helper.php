@@ -8,6 +8,12 @@ function admin_menus() {
       'icon' => 'fas fa-user',
       'url'  => base_url('/users')
     ),
+
+    array(
+      'text' => 'Kelola Mata Anggaran',
+      'icon' => 'fas fa-user',
+      'url'  => base_url('/mataanggaran')
+    ),
     array(
       'text' => 'Kelola Sasaran Mutu',
       'icon' => 'fas fa-list',

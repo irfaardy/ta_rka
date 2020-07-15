@@ -58,6 +58,7 @@ $route['user/tambah'] = 'Users/create';
 $route['user/simpan'] = 'Users/save';
 $route['user/ubah'] = 'Users/edit';
 $route['user/update'] = 'Users/update';
+$route['user/delete'] = 'Users/delete';
 $route['dashboard'] = 'Dashboard';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

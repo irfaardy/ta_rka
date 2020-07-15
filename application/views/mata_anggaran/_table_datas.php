@@ -17,11 +17,11 @@
             <td><?= ($mata_anggaran->nama_rekening) ? $mata_anggaran->nama_rekening : "-"; ?></td>
             <!-- actions -->
             <td style="min-width: 200px;">
-              <a href="<?= base_url('/sasaranmutu/edit/'.$mata_anggaran->kode_rekening) ?>" class="btn btn-xs btn-warning">
+              <a href="<?= base_url('/MataAnggaran/edit/'.$mata_anggaran->kode_rekening) ?>" class="btn btn-xs btn-warning">
                 <i class="fas fa-edit fa-fw"></i>
                 Edit
               </a>
-              <button class="btn btn-xs btn-danger" data-action="<?= base_url('/sasaranmutu/delete/'.$mata_anggaran->kode_rekening) ?>" data-delete>
+              <button class="btn btn-xs btn-danger" data-action="<?= base_url('/MataAnggaran/delete/'.$mata_anggaran->kode_rekening) ?>" data-delete>
                 <i class="fas fa-trash fa-fw"></i>
                 Hapus
               </a>

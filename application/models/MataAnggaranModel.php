@@ -9,7 +9,7 @@ class MataAnggaranModel extends CI_Model {
   }
 
   public function get($id) {
-    return $this->db->where('no_rekening', $id)->get($this->table)->row();
+    return $this->db->where('kode_rekening', $id)->get($this->table)->row();
   }
 
   public function create() {
@@ -27,6 +27,7 @@ class MataAnggaranModel extends CI_Model {
     $params = $this->input->post();
 
 		try{
+      $this->db->where('kode_rekening', $id);
 			$this->db->update($this->table, $params);
 			return true;
 		} catch(\Exception $e){
@@ -35,9 +36,10 @@ class MataAnggaranModel extends CI_Model {
   }
 
   public function delete($id) {
-    $params = array('no_rekening' => $id);
+    $params = array('kode_rekening' => $id);
 
     try{
+      $this->db->where('kode_rekening', $id);
       $this->db->delete($this->table, $params);
 			return true;
 		} catch(\Exception $e){

@@ -100,9 +100,16 @@ class Auth{
 	* Mencegah guest untuk mengakses halaman
 	* @return void
 	*/
-	public function protect(){
+	public function protect($hakAksesId = null){
 		if(!$this->check()){
 			$this->destroy();
+		} else{
+		   if(!empty($hakAksesId)){
+				if($this->user()->level != $hakAksesId) {
+					$this->CI->session->set_flashdata('warning','Anda tidak dapat mengakses halaman ini.');
+					return redirect($_SERVER['HTTP_REFERER']);
+				} 
+			}
 		}
 	}
 }

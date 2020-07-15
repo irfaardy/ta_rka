@@ -6,8 +6,7 @@ class MataAnggaran extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 
-		$this->auth->protect();
-		$this->auth->hakAkses(4);
+		$this->auth->protect(4);
 
 	}
 	public function index() {

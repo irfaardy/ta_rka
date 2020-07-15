@@ -4,11 +4,15 @@ function admin_menus() {
   $CI = &get_instance();
   $list = [
     array(
+      'text' => 'Home',
+      'icon' => 'fas fa-home',
+      'url'  => base_url('/')
+    ),
+    array(
       'text' => 'Kelola User',
       'icon' => 'fas fa-user',
       'url'  => base_url('/users')
     ),
-
     array(
       'text' => 'Kelola Mata Anggaran',
       'icon' => 'fas fa-user',

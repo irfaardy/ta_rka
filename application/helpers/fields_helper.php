@@ -7,3 +7,11 @@ function sasaranMutuFields($params = null) {
     return $params;
   }
 }
+
+function mataAnggaranFields($params = null) {
+  if ($params == null) {
+    return array('kode_rekening' => null,'nama_rekening' => null);
+  }else {
+    return $params;
+  }
+}

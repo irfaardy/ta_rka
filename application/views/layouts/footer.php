@@ -1,3 +1,5 @@
+      </div>
+      </div>
       </section>
       <!-- close content -->
     </div>

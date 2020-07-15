@@ -17,6 +17,12 @@ class UserModel  extends CI_Model {
 		$this->db->where($where);
 		return $this->db->update($this->table,$params);
 	}
+
+	public function delete($where){
+		$params = $this->build_params();
+		$this->db->where($where);
+		return $this->db->delete($this->table);
+	}
 	public function create(){
 		$params = $this->build_params();
 		try{

@@ -39,9 +39,12 @@ class UserModel  extends CI_Model {
 			'jurusan_id' => $this->input->post('jurusan_id'),
 			'username' 	=> $this->input->post('username'),
 			'nama' 		=> $this->input->post('nama'),
-			'password' 	=> bcrypt($this->input->post('password')),
 			'level' 		=> $this->input->post('level'),
 		];
+		// if password filled / null
+		if ($this->input->post('password') != "") {
+			$params['password'] = bcrypt($this->input->post('password'));
+		}
 		return $params;
 	}
 }

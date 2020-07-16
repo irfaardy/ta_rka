@@ -5,10 +5,12 @@ class SasaranMutuModel extends CI_Model {
   private $table = "tb_sasaran_mutu";
 
   public function getAll() {
+    $this->db->where('jurusan_id', AuthData()->jurusan_id);
     return $this->db->get($this->table)->result();
   }
 
   public function get($id) {
+    $this->db->where('jurusan_id', AuthData()->jurusan_id);
     return $this->db->where('no_sarmut', $id)->get($this->table)->row();
   }
 

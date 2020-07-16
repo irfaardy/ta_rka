@@ -5,10 +5,12 @@ class MataAnggaranModel extends CI_Model {
   private $table = "tb_mata_anggaran";
 
   public function getAll() {
+    $this->db->where('jurusan_id', AuthData()->jurusan_id);
     return $this->db->get($this->table)->result();
   }
 
   public function get($id) {
+    $this->db->where('jurusan_id', AuthData()->jurusan_id);
     return $this->db->where('kode_rekening', $id)->get($this->table)->row();
   }
 

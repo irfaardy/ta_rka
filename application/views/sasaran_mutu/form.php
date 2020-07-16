@@ -7,6 +7,9 @@
         </div>
         <div class="card-body">
           <form class="" action="<?php echo $action ?>" method="post">
+            <!-- set jurusan -->
+            <!-- <input type="text" name="id_jurusan" value="<?#php echo  ?>"> -->
+
             <!-- initial object (null or not) -->
             <?php $sasaran_mutu = sasaranMutuFields($obj); ?>
 

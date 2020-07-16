@@ -1,18 +1,22 @@
 <?php
 class JurusanModel  extends CI_Model {
 	private $table = "tb_jurusan";
- public function getAll() {
+
+	public function rules(){
+		return [
+			[
+				'field' => 'nama',
+				'label' => 'Nama',
+				'rules' => 'required',
+			]
+		];
+	}
+
+ 	public function getAll() {
     return $this->db->get($this->table)->result();
   }
-  public function rules(){
-  	return [
-  			['field' => 'nama',
-  			 'label' => 'Nama',
-  			 'rules' => 'required',
-  			]
-  	];
-  }
-  public function get($id) {
+
+	public function get($id) {
     return $this->db->where('id', $id)->get($this->table)->row();
   }
 

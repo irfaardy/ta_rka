@@ -16,17 +16,18 @@ class Users extends CI_Controller {
 
 	public function create()
 	{
-
-		$this->load->template('kelola_user/form',['title' => 'Tambah User','url' => base_url('user/simpan')]);
+		$daftar_jurusan = $this->jurusan->getAll();
+		$this->load->template('kelola_user/form',['title' => 'Tambah User','url' => base_url('user/simpan'), 'user' => null, 'daftar_jurusan' => $daftar_jurusan]);
 	}
 	public function edit()
 	{
+		$daftar_jurusan = $this->jurusan->getAll();
 		$user = $this->check_user();
-		$this->load->template('kelola_user/form',['user' => $user,'title' => 'Update User','url' => base_url('user/update')]);
+		$this->load->template('kelola_user/form',['user' => $user,'title' => 'Update User','url' => base_url('user/update'), 'daftar_jurusan' => $daftar_jurusan]);
 	}
 
 	public function update()
-	{	
+	{
 		$this->check_user();
 
 		$this->user->update(['id' => $this->input->post('id')]);
@@ -47,7 +48,7 @@ class Users extends CI_Controller {
 
 
 	public function delete($id)
-	{	
+	{
 		$this->check_user($id);
 		$this->user->delete(['id' => $id]);
 		$this->session->set_flashdata('success','Sukses menghapus data.');
@@ -60,12 +61,12 @@ class Users extends CI_Controller {
 		} else{
 			$input = $id;
 		}
-		
+
 		$user = $this->user->getBy(['id' => $input ]);
 		if(empty($user)){
 			$this->session->set_flashdata('fail','User tidak ditemukan.');
 			return redirect(base_url('/users'));
-		} 
+		}
 		return $user;
 	}
 

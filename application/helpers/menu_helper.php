@@ -61,13 +61,13 @@ function admin_menus() {
       'text' => 'Cetak RKA',
       'icon' => 'fas fa-print',
       'url'  => base_url('#'),
-      'user' => [5, 4]
+      'user' => [4]
     ),
     array(
       'text' => 'RDDKF',
       'icon' => 'fas fa-bars',
       'url'  => base_url('#'),
-      'user' => [5, 4, 3]
+      'user' => [4, 3]
     ),
     array(
       'text' => 'Logout',

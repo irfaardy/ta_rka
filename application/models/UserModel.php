@@ -3,16 +3,16 @@ class UserModel  extends CI_Model {
 	private $table = "tb_user";
 
 	public function getAll(){
-    	return $this->db->get($this->table)->result();
+    return $this->db->get($this->table)->result();
 	}
+
 	public function getBy($param){
 
 		$this->db->where($param);
 		return $this->db->get($this->table)->row();
 	}
-	public function update($where){
 
-		
+	public function update($where){
 		$params = $this->build_params();
 		$this->db->where($where);
 		return $this->db->update($this->table,$params);
@@ -23,6 +23,7 @@ class UserModel  extends CI_Model {
 		$this->db->where($where);
 		return $this->db->delete($this->table);
 	}
+
 	public function create(){
 		$params = $this->build_params();
 		try{
@@ -34,12 +35,13 @@ class UserModel  extends CI_Model {
 	}
 
 	private function build_params(){
-			 $params = 	[
-                         'username' 	=> $this->input->post('username'),
-                         'nama' 		=> $this->input->post('nama'),
-                         'password' 	=> bcrypt($this->input->post('password')),
-                         'level' 		=> $this->input->post('level'),
-                     	];
-             return $params;
-		}
+		$params = 	[
+			'jurusan_id' => $this->input->post('jurusan_id'),
+			'username' 	=> $this->input->post('username'),
+			'nama' 		=> $this->input->post('nama'),
+			'password' 	=> bcrypt($this->input->post('password')),
+			'level' 		=> $this->input->post('level'),
+		];
+		return $params;
+	}
 }

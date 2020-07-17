@@ -45,6 +45,5 @@ class UserModel  extends CI_Model {
                      	];
              return $params;
 		}
-		return $params;
-	}
+	
 }

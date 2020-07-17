@@ -22,6 +22,7 @@ class JurusanModel  extends CI_Model {
 
   public function create() {
 		$params = $this->input->post();
+		
 
 		try{
 			$this->db->insert($this->table, $params);

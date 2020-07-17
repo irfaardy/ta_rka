@@ -21,6 +21,9 @@ class Auth{
      */
 	public function verify($username,$password){
 		$get = $this->CI->user->getBy(['username' => $username]);
+		if(empty($get)){
+			return false;
+		}
 		if(password_verify($password, $get->password)) {
 			$user_datas = array(
 			        'user_id'  => $get->id,

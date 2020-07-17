@@ -12,11 +12,12 @@
 <!-- Alert -->
 <script type="text/javascript">
 $(document).ready(function() {
-	$("[auto-close-alert]").fadeTo(3000, 500).slideUp(300, function(){
-	    $("[auto-close-alert]").slideUp(300);
+	$("[auto-close-alert]").fadeTo(3000, 500).slideUp(500, function(){
+	    $("[auto-close-alert]").slideUp(500);
 	});
 });
 </script>
+<!-- DataTables -->
 <script type="text/javascript">
 $(document).ready(function() {
     $('#users').DataTable();

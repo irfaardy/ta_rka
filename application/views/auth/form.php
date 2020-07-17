@@ -2,7 +2,7 @@
 <?php $this->view("layouts/components/_messages.php") ?>
 <form action="<?= base_url('login/auth') ?>" method="POST">
 	<div class="input-group mb-3">
-    <input type="text" name="username" class="form-control py-4" required="" placeholder="Username">
+    <input type="text" name="username" class="form-control <?= !empty($this->session->flashdata('fail')) ? "is-invalid":null?> py-4" required="" placeholder="Username">
     <div class="input-group-append">
       <div class="input-group-text">
         <span class="fas fa-envelope"></span>
@@ -10,7 +10,7 @@
     </div>
   </div>
 	<div class="input-group mb-3">
-    <input type="password" name="password" class="form-control py-4" required="" placeholder="Password">
+    <input type="password" name="password" class="form-control <?= !empty($this->session->flashdata('fail')) ? "is-invalid":null?> py-4" required="" placeholder="Password">
     <div class="input-group-append">
       <div class="input-group-text">
         <span class="fas fa-lock"></span>

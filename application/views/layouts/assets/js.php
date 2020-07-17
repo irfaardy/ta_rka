@@ -3,6 +3,9 @@
 <!-- jQuery UI 1.11.4 -->
 <script src="<?= assets('plugins/jquery-ui/jquery-ui.min.js') ?>"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<!-- Data Tables -->
+<script src="<?= assets('plugins/datatables/jquery.dataTables.min.js') ?>"></script>
+<script src="<?= assets('plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') ?>"></script>
 <script>
   $.widget.bridge('uibutton', $.ui.button)
 </script>
@@ -13,6 +16,14 @@ $(document).ready(function() {
 	    $("[auto-close-alert]").slideUp(300);
 	});
 });
+</script>
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#users').DataTable();
+    $('#sasaran_mutu').DataTable();
+    $('#mata_anggaran').DataTable();
+    $('#jurusan').DataTable();
+} );
 </script>
 <!-- Bootstrap 4 -->
 <script src="<?= assets('plugins/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>

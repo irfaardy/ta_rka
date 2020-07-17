@@ -6,6 +6,9 @@
 <link rel="stylesheet" href="<?= assets('plugins/icheck-bootstrap/icheck-bootstrap.min.css') ?> ">
 <!-- Theme style -->
 <link rel="stylesheet" href="<?= assets('css/adminlte.min.css') ?>">
+<!-- Data Tables -->
+
+<link rel="stylesheet" href="<?= assets('plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') ?>">
 <!-- overlayScrollbars -->
 <link rel="stylesheet" href="<?= assets('plugins/overlayScrollbars/css/OverlayScrollbars.min.css') ?>">
 <!-- dataTable -->

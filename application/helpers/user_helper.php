@@ -22,3 +22,9 @@ function jurusanList(){
 	$CI = &get_instance();
 	return $CI->jurusan->getAll();
 }
+function jurusan($id){
+	$CI = &get_instance();
+	$jur = $CI->jurusan->get($id);
+	
+	return !empty($jur)?$jur->nama:"-";
+}

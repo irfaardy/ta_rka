@@ -4,6 +4,7 @@
 				<th>Username</th>
 				<th>Nama</th>
 				<th>Level</th>
+				<th>Jurusan</th>
 				<th>Aksi</th>
 			</thead>
 			<tbody>
@@ -12,6 +13,7 @@
 					<td><?= $u->username ?></td>
 					<td><?= $u->nama ?></td>
 					<td><?= userLevel($u->level) ?></td>
+					<td><?= jurusan($u->jurusan_id) ?></td>
 					<td>
 						
 							<a class="btn btn-warning" href="<?= base_url('user/ubah?id=').$u->id ?>"><i class="fas fa-edit"></i></a> 

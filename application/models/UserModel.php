@@ -40,7 +40,7 @@ class UserModel  extends CI_Model {
                          'username' 	=> $this->input->post('username'),
                          'nama' 		=> $this->input->post('nama'),
                          'password' 	=> bcrypt($this->input->post('password')),
-                         'jurusan_id' 	=> $this->input->post('jurusan'),
+                         'jurusan_id' 	=> $this->input->post('jurusan_id'),
                          'level' 		=> $this->input->post('level'),
                      	];
              return $params;

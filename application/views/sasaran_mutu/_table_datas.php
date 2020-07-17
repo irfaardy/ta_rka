@@ -1,6 +1,6 @@
 <?php if ($obj != null): ?>
   <div class="mt-5">
-    <table class="table table-bordered table-striped display nowrap" data-table>
+    <table class="table table-bordered table-striped display nowrap" id="sasaran_mutu">
       <thead>
         <tr>
           <th class="text-nowrap">No</th>

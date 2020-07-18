@@ -24,6 +24,7 @@ $(document).ready(function() {
     $('#sasaran_mutu').DataTable();
     $('#mata_anggaran').DataTable();
     $('#jurusan').DataTable();
+    $('#rddkf').DataTable();
 } );
 </script>
 <!-- Bootstrap 4 -->

@@ -16,13 +16,13 @@ class RDDKF extends CI_Controller {
 	}
 
 	function tambah() {
-		$params = array("title" => "Tambah RDDKF", "obj" => null, "action" => base_url("/rddkf/save"));
+		$params = array("title" => "Tambah RDDKF", "obj" => null, "action" => base_url("/RDDKF/save"));
 		$this->load->template('rddkf/form', $params);
 	}
 
 	function edit($id) {
 		$obj = $this->rddkf->get($id);
-		$params = array("title" => "Ubah Data RDDKF", "obj" => $obj, "action" => base_url("/rddkf/update/$id"));
+		$params = array("title" => "Ubah Data RDDKF", "obj" => $obj, "action" => base_url("/RDDKF/update/$id"));
 		$this->load->template('rddkf/form', $params);
 	}
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 18, 2020 at 06:14 AM
+-- Generation Time: Jul 18, 2020 at 06:21 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.4
 
@@ -32,6 +32,7 @@ CREATE TABLE `tb_rddkf` (
   `kode_rddkf` bigint(20) NOT NULL,
   `tahun` varchar(4) DEFAULT NULL,
   `rddkf` text,
+  `jurusan_id` int(11) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   `updated_by` varchar(20) NOT NULL

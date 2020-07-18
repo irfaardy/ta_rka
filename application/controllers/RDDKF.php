@@ -41,10 +41,10 @@ class RDDKF extends CI_Controller {
                 if($this->rddkf->create(['tahun' => $this->input->post('tahun'),'rddkf' => $_FILES['rddkf']['name']])){
 					$this->session->set_flashdata('success','Berhasil Menambahkan data rddkf.');
 
-					return redirect(base_url('/rddkf'));
+					return redirect(base_url('/RDDKF'));
 				} else{
 					$this->session->set_flashdata('fail','Gagal menambahkan data rddkf.');
-					return redirect(base_url('/rddkf/tambah'));
+					return redirect(base_url('/RDDKF/tambah'));
 				}
         
 
@@ -57,7 +57,7 @@ class RDDKF extends CI_Controller {
 
 		if(!$validator->run()){
 			$this->session->set_flashdata('fail','Gagal menambahkan data rddkf. '.validation_errors());
-			return redirect(base_url('/rddkf/tambah'));
+			return redirect(base_url('/RDDKF/tambah'));
 		}
 
         $params = ['tahun' => $this->input->post('tahun')];
@@ -68,10 +68,10 @@ class RDDKF extends CI_Controller {
 		if($this->rddkf->update($id,$params)){
 			$this->session->set_flashdata('success','Berhasil Mengubah data rddkf.');
 
-			return redirect(base_url('/rddkf'));
+			return redirect(base_url('/RDDKF'));
 		} else{
 			$this->session->set_flashdata('fail','Gagal Mengubah data rddkf.');
-			return redirect(base_url('/rddkf/tambah'));
+			return redirect(base_url('/RDDKF/tambah'));
 		}
 	}
 
@@ -79,7 +79,7 @@ class RDDKF extends CI_Controller {
 		$rddkf = $this->rddkf->get($id);
 		if(empty($rddkf)){
 			$this->session->set_flashdata('fail','Data RDDKF Tidak ditemukan.');
-			return redirect(base_url('/rddkf'));
+			return redirect(base_url('/RDDKF'));
 		}
 
 		if($this->rddkf->delete($id)){
@@ -88,10 +88,10 @@ class RDDKF extends CI_Controller {
 				unlink($file);
 			}
 			$this->session->set_flashdata('success','Berhasil Menghapus data rddkf.');
-			return redirect(base_url('/rddkf'));
+			return redirect(base_url('/RDDKF'));
 		} else{
 			$this->session->set_flashdata('fail','Gagal Menghapus data rddkf.');
-			return redirect(base_url('/rddkf'));
+			return redirect(base_url('/RDDKF'));
 		}
 	}
 

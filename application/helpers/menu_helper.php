@@ -46,6 +46,18 @@ function admin_menus() {
       'user' => [2, 1]
     ),
     array(
+      'text' => 'Status Pengajuan',
+      'icon' => 'fas fa-clipboard-check',
+      'url'  => base_url('#'),
+      'user' => [2]
+    ),
+    array(
+      'text' => 'Lihat RDKFF',
+      'icon' => 'fas fa-clipboard-check',
+      'url'  => base_url('#'),
+      'user' => [2]
+    ),
+    array(
       'text' => 'Kegiatan RKA',
       'icon' => 'fas fa-calendar',
       'url'  => base_url('#'),
@@ -64,9 +76,9 @@ function admin_menus() {
       'user' => [4]
     ),
     array(
-      'text' => 'RDDKF',
+      'text' => 'Kelola RDDKF',
       'icon' => 'fas fa-bars',
-      'url'  => base_url('#'),
+      'url'  => base_url('/RDDKF'),
       'user' => [4, 3]
     ),
     array(

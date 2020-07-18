@@ -23,6 +23,13 @@ function jurusanFields($params = null) {
   }
 }
 
+function  rddkfFields($params = null) {
+  if ($params == null) {
+    return array('tahun' => null,'file' => null,);
+  }else {
+    return $params;
+  }
+}
 function mataAnggaranFields($params = null) {
   if ($params == null) {
     return array('kode_rekening' => null,'nama_rekening' => null);
@@ -35,4 +42,15 @@ function selectOptionSelected($value, $current_value) {
   if ($value == $current_value) {
     return "selected";
   }
+
+}
+
+function yearSelect(){
+  $mulai  =date('Y', strtotime('-10 year'));
+  $selesai = date('Y');
+  $years = [];
+  for($selesai; $selesai >= $mulai; $selesai--) {
+    $years[] =$selesai;
+  }
+  return $years;
 }

@@ -2,12 +2,23 @@
 	<div class="row">
 		<div class="col">
 			<h4>Selamat Datang <b><?= AuthData()->nama ?></b></h4>
-			<p>
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-			</p>
-			<p>
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-			</p>
+			<div align="center">
+				<h3><b>VISI DAN MISI UNIVERSITAS JENDERAL ACHMAD YANI</b></h3>
+				<hr>
+			</div>
+			<div align="center">
+				<h4><b>VISI</b></h4>
+				Menjadi Universitas Unggul Berjiwa Kebangsaan dan Berwawasan Lingkungan.
+				<h4><b>MISI</b></h4>
+				<ol>
+					<li>Menyelenggarakan pengelolaan pendidikan, penelitian dan pengembangan ilmu pengetahuan, serta pengabdian kepada masyarakat yang handal dan akuntabel serta mampu memenuhi tuntutan masyarakan pengguna jasa pendidikan tinggi.
+					</li>
+					<li>Membentuk insan akademik yang berwibawa, berjiwa kebangsaan dan berwawasan lingkunhan.</li>
+					<li>Menyelenggarakan kerja sama dan jaringan yang luas dengan perguruan tinggi, pemerintah institusi penelitian, masyarakat dan industri.
+					</li>
+				</ol>
+			</div>
+			<hr>
 		</div>
 	</div>
 </div>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Login</title>
+	<title>Login | Sistem Informasi Rencana Kerja dan Anggaran Jurusan Universitas Jendral Achmad Yani </title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- CSS -->
 		<?php include('assets/css.php') ?>

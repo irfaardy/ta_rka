@@ -3,6 +3,7 @@
 <head>
 	<title><?= !empty($title) ? $title:"Dashboard" ?> | Sistem Informasi Rencana Kerja dan Anggaran Jurusan Universitas Jendral Achmad Yani </title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" href="<?= assets('img/logo-unjani.png') ?>">
 	<!-- CSS -->
 	<?php include('assets/css.php') ?>
 	<!-- ENDCSS -->

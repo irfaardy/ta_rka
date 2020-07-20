@@ -37,13 +37,17 @@ class UserModel  extends CI_Model {
 	private function build_params(){
 
 			 $params = 	[
-                         'username' 	=> $this->input->post('username'),
-                         'nama' 		=> $this->input->post('nama'),
-                         'password' 	=> bcrypt($this->input->post('password')),
-                         'jurusan_id' 	=> $this->input->post('jurusan_id'),
-                         'level' 		=> $this->input->post('level'),
-                     	];
-             return $params;
+           'username' 	=> $this->input->post('username'),
+           'nama' 		=> $this->input->post('nama'),
+           'jurusan_id' 	=> $this->input->post('jurusan_id'),
+           'level' 		=> $this->input->post('level'),
+       	];
+
+				if ($this->input->post('password') != '') {
+					$params['password'] = bcrypt($this->input->post('password'));
+				}
+
+      	return $params;
 		}
-	
+
 }

@@ -4,7 +4,7 @@
       <label for="">Kode Rekening</label>
     </div>
     <div class="col-9">
-      <input type="text" class="form-control" name="kode_rekening" value="<?php echo $kode_rekening ?>" />
+      <input type="text" class="form-control" <?= !empty($kode_rekening)?"readonly='true' ":null ?> name="kode_rekening" value="<?php echo $kode_rekening ?>" />
     </div>
   </div>
 </div>

@@ -27,6 +27,7 @@ class MataAnggaran extends CI_Controller {
 	}
 
 	function save() {
+		$this->mata_anggaran->validate();
 		if($this->mata_anggaran->create()){
 			$this->session->set_flashdata('success','Berhasil Menambahkan data Mata Anggaran.');
 
@@ -49,6 +50,10 @@ class MataAnggaran extends CI_Controller {
 	}
 
 	function delete($id) {
+		if(checkPerencanaan($id)){
+			$this->session->set_flashdata('fail','Tidak dapat menghapus Mata Anggaran. Karena sedang dipakai di perencanaan.');
+			return redirect(base_url('/MataAnggaran'));
+		}
 		if($this->mata_anggaran->delete($id)){
 			$this->session->set_flashdata('success','Berhasil Menghapus data Mata Anggaran.');
 

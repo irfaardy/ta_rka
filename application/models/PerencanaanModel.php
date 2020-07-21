@@ -1,9 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class MataAnggaranModel extends CI_Model {
-  private $table = "tb_mata_anggaran";
-  private $primary = "kode_rekening";
+class PerencanaanModel extends CI_Model {
+  private $table = "tb_perencanaan";
+  private $primary = "no";
 
   public function getAll() {
     $this->db->where('jurusan_id', AuthData()->jurusan_id);
@@ -14,6 +14,12 @@ class MataAnggaranModel extends CI_Model {
 
     $this->db->where('jurusan_id', AuthData()->jurusan_id);
     return $this->db->where($this->primary, $id)->get($this->table)->row();
+  }
+
+  public function cekKodeRekening($id) {
+
+    $this->db->where('jurusan_id', AuthData()->jurusan_id);
+    return $this->db->where('kode_rekening', $id)->get($this->table)->num_rows();
   }
 
   public function create() {
@@ -44,7 +50,7 @@ class MataAnggaranModel extends CI_Model {
     $params = array($this->primary => $id);
 
     try{
-      $this->db->where('kode_rekening', $id);
+      $this->db->where($this->primary, $id);
       $this->db->delete($this->table, $params);
 			return true;
 		} catch(\Exception $e){
@@ -63,13 +69,21 @@ class MataAnggaranModel extends CI_Model {
   private function rules(){
     return [
       [
-        'field' => 'kode_rekening',
+        'field' => 'no_sarmut',
         'label' => 'Kode Rekening',
         'rules' => 'required|integer',
         
       ], [
-        'field' => 'nama_rekening',
+        'field' => 'kode_rekening',
         'label' => 'Nama Rekening',
+        'rules' => 'required',
+      ],[
+        'field' => 'tahun',
+        'label' => 'Tahun',
+        'rules' => 'required|integer',
+      ],[
+        'field' => 'uraian',
+        'label' => 'Uraian',
         'rules' => 'required',
       ],
     
@@ -81,11 +95,11 @@ class MataAnggaranModel extends CI_Model {
       $validator->set_rules($this->rules());
 
       if(!$validator->run()){
-        $this->session->set_flashdata('fail','Gagal menambahkan data Mata Anggaran. '.validation_errors());
+        $this->session->set_flashdata('fail','Gagal menambahkan data Perencanaan. '.validation_errors());
         return redirect($this->agent->referrer());
       }
     } else{
-       $this->session->set_flashdata('fail','Kode Rekening sudah ada.');
+       $this->session->set_flashdata('fail','no Perencanaan sudah ada.');
         return redirect($this->agent->referrer());
     }
   }

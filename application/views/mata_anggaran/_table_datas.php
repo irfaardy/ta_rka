@@ -21,10 +21,17 @@
                 <i class="fas fa-edit fa-fw"></i>
                 Edit
               </a>
+              <?php if(!checkPerencanaan($mata_anggaran->kode_rekening)):?>
               <button class="btn btn-xs btn-danger" data-action="<?= base_url('/MataAnggaran/delete/'.$mata_anggaran->kode_rekening) ?>" data-delete>
                 <i class="fas fa-trash fa-fw"></i>
                 Hapus
-              </a>
+              </button>
+              <?php else: ?>
+                <button class="btn btn-xs btn-default" title='Sedang dipakai di perencanaan' disabled="">
+                <i class="fas fa-trash fa-fw"></i>
+                Hapus
+              </button>
+            <?php endif; ?>
             </td>
           <?php $no++; ?>
         <?php endforeach; ?>

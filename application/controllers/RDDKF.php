@@ -97,8 +97,8 @@ class RDDKF extends CI_Controller {
 
 	private function upload(){
 		$config['upload_path']          = './uploads/rddkf/';
-        $config['allowed_types']        = 'jpg|png|pdf|doc|docx|xls|xlsx';
-        $config['max_size']             = 8000;
+        $config['allowed_types']        = 'jpg|png|pdf|doc|docx|rtf';
+        $config['max_size']             = 10000;//10MB
 
         $this->load->library('upload', $config);
 

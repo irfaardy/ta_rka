@@ -54,3 +54,12 @@ function yearSelect(){
   }
   return $years;
 }
+
+function checkPerencanaan($kode_rekening){
+  $CI = &get_instance();
+  $cek = $CI->perencanaan->cekKodeRekening($kode_rekening);
+  if($cek > 0){
+    return true;
+  }
+    return false;
+}

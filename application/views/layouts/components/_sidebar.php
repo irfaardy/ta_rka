@@ -19,7 +19,8 @@
         <!-- Add icons to the links using the .nav-icon class
              with font-awesome or any other icon font library -->
         <?php foreach (admin_menus() as $menu): ?>
-          <?php if (in_array(AuthData()->level, $menu['user'])): ?>
+          <?php if (in_array(AuthData()->level, $menu['user'])): 
+            if(empty($menu['dropdown_menus'])):?>
             <li class="nav-item">
               <a href="<?php echo $menu['url']; ?>" class="nav-link">
                 <i class="nav-icon <?php echo $menu['icon']; ?>"></i>
@@ -28,9 +29,30 @@
                 </p>
               </a>
             </li>
+            <?php else:?>
+               <li class="nav-item has-treeview">
+                <a href="<?php echo $menu['url']; ?>" class="nav-link">
+                  <i class="nav-icon fas fa-copy"></i>
+                  <p>
+                     <?php echo $menu['text']; ?>
+                    <i class="fas fa-angle-left right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview" style="display: none;">
+                  <?php foreach($menu['dropdown_menus'] as $m):?>
+                  <li class="nav-item">
+                    <a href="<?php echo $m['url']; ?>" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p><?php echo $m['text']; ?></p>
+                    </a>
+                  </li>
+                 <?php endforeach; ?>
+                </ul>
+            </li>
+          <?php endif; ?>
           <?php endif; ?>
         <?php endforeach; ?>
-
+       
       </ul>
     </nav>
     <!-- /.sidebar-menu -->

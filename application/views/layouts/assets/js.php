@@ -25,6 +25,7 @@ $(document).ready(function() {
     $('#mata_anggaran').DataTable();
     $('#jurusan').DataTable();
     $('#rddkf').DataTable();
+    $('#fasilitas').DataTable();
 } );
 </script>
 <!-- Bootstrap 4 -->

@@ -44,7 +44,7 @@ class FasilitasModel extends CI_Model {
     $params = array($this->primary => $id);
 
     try{
-      $this->db->where('kode_rekening', $id);
+      $this->db->where($this->primary, $id);
       $this->db->delete($this->table, $params);
 			return true;
 		} catch(\Exception $e){
@@ -68,15 +68,11 @@ class FasilitasModel extends CI_Model {
       ],[
         'field' => 'anggaran',
         'label' => 'Anggaran',
-        'rules' => 'required|float',
+        'rules' => 'required|numeric',
       ],[
         'field' => 'tahun',
         'label' => 'Tahun',
         'rules' => 'required|integer',
-      ],[
-        'field' => 'status',
-        'label' => 'status',
-        'rules' => 'required',
       ],
     
     ];

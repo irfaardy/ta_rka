@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class MataAnggaranModel extends CI_Model {
+class FasilitasModel extends CI_Model {
   private $table = "tb_fasilitas";
   private $primary = "no_fasilitas";
 
@@ -53,30 +53,35 @@ class MataAnggaranModel extends CI_Model {
   }
   
   ///Validator///
-  private function checkPrimary(){
-    $cek = $this->get($this->input->post($this->primary));
-    if(empty($cek)){
-      return true;
-    }
-      return false;
-  }
+ 
   private function rules(){
     return [
       [
-        'field' => 'kode_rekening',
-        'label' => 'Kode Rekening',
-        'rules' => 'required|integer',
+        'field' => 'jenis_peralatan',
+        'label' => 'Jenis Peralatan',
+        'rules' => 'required',
         
       ], [
-        'field' => 'nama_rekening',
-        'label' => 'Nama Rekening',
+        'field' => 'banyaknya',
+        'label' => 'Banyaknya',
+        'rules' => 'required|integer',
+      ],[
+        'field' => 'anggaran',
+        'label' => 'Anggaran',
+        'rules' => 'required|float',
+      ],[
+        'field' => 'tahun',
+        'label' => 'Tahun',
+        'rules' => 'required|integer',
+      ],[
+        'field' => 'status',
+        'label' => 'status',
         'rules' => 'required',
       ],
     
     ];
   }
   public function validate(){
-    if($this->checkPrimary()){
       $validator = $this->form_validation;
       $validator->set_rules($this->rules());
 
@@ -84,9 +89,5 @@ class MataAnggaranModel extends CI_Model {
         $this->session->set_flashdata('fail','Gagal menambahkan data Mata Anggaran. '.validation_errors());
         return redirect($this->agent->referrer());
       }
-    } else{
-       $this->session->set_flashdata('fail','Kode Rekening sudah ada.');
-        return redirect($this->agent->referrer());
-    }
   }
 }

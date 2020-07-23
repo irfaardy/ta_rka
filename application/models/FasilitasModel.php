@@ -5,8 +5,11 @@ class FasilitasModel extends CI_Model {
   private $table = "tb_fasilitas";
   private $primary = "no_fasilitas";
 
-  public function getAll() {
+  public function getAll($where=null) {
     $this->db->where('jurusan_id', AuthData()->jurusan_id);
+    if(!empty($where)){
+      $this->db->where($where);
+    }
     return $this->db->get($this->table)->result();
   }
 

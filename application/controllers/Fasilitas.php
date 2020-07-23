@@ -64,4 +64,17 @@ class Fasilitas extends CI_Controller {
 		}
 	}
 
+	public function cetak(){
+		if(empty($this->input->get('tahun'))){
+			$this->session->set_flashdata('fail','Mohon pilih tahun.');
+			return redirect(base_url('/Fasilitas'));
+		}
+        $data = $this->fasilitas->getAll(['tahun' => $this->input->get('tahun')]);
+
+        $this->pdf->setPaper('A4', 'landscape');
+        $this->pdf->filename = "Laporan_Fasilitas_".$this->input->get('tahun').".pdf";
+        $this->pdf->load_view('pdf/pdf_cetak', ['data'=>$data]);
+
+	}
+
 }

@@ -23,7 +23,7 @@ function jurusanFields($params = null) {
   }
 }
 
-function  rddkfFields($params = null) {
+function rddkfFields($params = null) {
   if ($params == null) {
     return array('tahun' => null,'file' => null,);
   }else {
@@ -38,11 +38,24 @@ function mataAnggaranFields($params = null) {
   }
 }
 
+function rkaFields($params = null) {
+  if ($params == null) {
+    return (object) array('no' => null, 'no_sarmut' => null, 'kegiatan' => null, 'januari' => null, 'februari' => null, 'maret' => null, 'april' => null, 'mei' => null, 'juni' => null, 'juli' => null, 'agustus' => null, 'september' => null, 'oktober' => null, 'november' => null, 'desember' => null);
+  }else {
+    return $params;
+  }
+}
+
 function selectOptionSelected($value, $current_value) {
   if ($value == $current_value) {
     return "selected";
   }
+}
 
+function checked($rka, $value) {
+  if ($rka[$value] == 1) {
+    return "checked";
+  }
 }
 
 function yearSelect(){
@@ -62,4 +75,8 @@ function checkPerencanaan($kode_rekening){
     return true;
   }
     return false;
+}
+
+function listMonth() {
+  return array('januari', 'februari', 'maret', 'april', 'mei', 'juni', 'juli', 'agustus', 'september', 'oktober', 'november', 'desember');
 }

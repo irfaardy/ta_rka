@@ -1,33 +1,28 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Rka extends CI_Controller {
+class Kegiatan extends CI_Controller {
 
 	function __construct(){
 		parent::__construct();
 
 		$this->auth->protect([1,5]);
 	}
-	public function index() {
-		$rka = $this->perencanaan->getAll();
-    $params = array("title" => "Rencana Kerja Anggaran", 'rka' => $rka);
-		$this->load->template('rka/index', $params);
-	}
 
-	function tambah() {
+	function tambah($no_kegiatan) {
 		$sasaran_mutu = $this->sasaran_mutu->getAll();
 		$params = array("title" => "Rencana Kerja Anggaran", "obj" => null, "action" => "/Rka/save", 'sasaran_mutu' => $sasaran_mutu);
 		$this->load->template('rka/form', $params);
 	}
 
-	function edit($id) {
+	function edit($no_kegiatan, $id) {
 		$sasaran_mutu = $this->sasaran_mutu->getAll();
 		$obj = $this->perencanaan->get($id);
 		$params = array("title" => "Rencana Kerja Anggaran", "obj" => $obj, "action" => "/Rka/update/$id", 'sasaran_mutu' => $sasaran_mutu);
 		$this->load->template('rka/form', $params);
 	}
 
-	function save() {
+	function save($no_kegiatan) {
 		if($this->perencanaan->create()){
 			$this->session->set_flashdata('success','Berhasil Menambahkan data sasaran mutu.');
 

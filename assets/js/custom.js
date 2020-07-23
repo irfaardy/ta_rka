@@ -4,6 +4,12 @@ $(document).ready(function(){
     "scrollX": true
   });
 
+  // data table
+  $("[data-table-no-ordering]").DataTable({
+    "scrollX": true,
+    "ordering": false
+  });
+
   // delete confirmation
   $("[data-delete]").on('click', function() {
     var $myModal = $("#delete-popup");

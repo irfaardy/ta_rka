@@ -57,7 +57,7 @@ class PerencanaanModel extends CI_Model {
 			return false;
 		}
   }
-  
+
   ///Validator///
   private function checkPrimary(){
     $cek = $this->get($this->input->post($this->primary));
@@ -72,7 +72,7 @@ class PerencanaanModel extends CI_Model {
         'field' => 'no_sarmut',
         'label' => 'Kode Rekening',
         'rules' => 'required|integer',
-        
+
       ], [
         'field' => 'kode_rekening',
         'label' => 'Nama Rekening',
@@ -86,7 +86,7 @@ class PerencanaanModel extends CI_Model {
         'label' => 'Uraian',
         'rules' => 'required',
       ],
-    
+
     ];
   }
   public function validate(){

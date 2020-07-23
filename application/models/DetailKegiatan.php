@@ -1,5 +1,5 @@
 <?php
-class DetailKegitian  extends CI_Model {
+class DetailKegiatan  extends CI_Model {
   private $table = "tb_detail_kegiatan";
 
   public function getAll() {

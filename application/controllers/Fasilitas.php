@@ -6,7 +6,7 @@ class Fasilitas extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 
-		$this->auth->protect([4]);
+		$this->auth->protect([4,3]);
 
 	}
 	public function index() {
@@ -16,17 +16,20 @@ class Fasilitas extends CI_Controller {
 	}
 
 	function tambah() {
+		$this->auth->protect([3]);
 		$params = array("title" => "Fasilitas", "obj" => null, "action" => base_url("/Fasilitas/save"));
 		$this->load->template('fasilitas/form', $params);
 	}
 
 	function edit($id) {
+		$this->auth->protect([3]);
 		$obj = $this->fasilitas->get($id);
 		$params = array("title" => "Fasilitas", "obj" => $obj, "action" => base_url("/Fasilitas/update/$id"));
 		$this->load->template('fasilitas/form', $params);
 	}
 
 	function save() {
+		$this->auth->protect([3]);
 		$this->fasilitas->validate();
 		if($this->fasilitas->create()){
 			$this->session->set_flashdata('success','Berhasil Menambahkan data Fasilitas.');
@@ -39,6 +42,7 @@ class Fasilitas extends CI_Controller {
 	}
 
 	function update($id) {
+		$this->auth->protect([3]);
 		if($this->fasilitas->update($id)){
 			$this->session->set_flashdata('success','Berhasil Mengubah data Fasilitas.');
 
@@ -50,6 +54,7 @@ class Fasilitas extends CI_Controller {
 	}
 
 	function delete($id) {
+		$this->auth->protect([3]);
 		if(checkPerencanaan($id)){
 			$this->session->set_flashdata('fail','Tidak dapat menghapus Fasilitas. Karena sedang dipakai di perencanaan.');
 			return redirect(base_url('/Fasilitas'));

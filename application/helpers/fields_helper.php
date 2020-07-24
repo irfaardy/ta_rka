@@ -23,7 +23,7 @@ function jurusanFields($params = null) {
   }
 }
 
-function  rddkfFields($params = null) {
+function rddkfFields($params = null) {
   if ($params == null) {
     return array('tahun' => null,'file' => null,);
   }else {
@@ -38,9 +38,25 @@ function mataAnggaranFields($params = null) {
   }
 }
 
+function rkaFields($params = null) {
+  if ($params == null) {
+    return (object) array('no' => null, 'no_sarmut' => null, 'kegiatan' => null, 'januari' => null, 'februari' => null, 'maret' => null, 'april' => null, 'mei' => null, 'juni' => null, 'juli' => null, 'agustus' => null, 'september' => null, 'oktober' => null, 'november' => null, 'desember' => null);
+  }else {
+    return $params;
+  }
+}
+
 function fasilitasFields($params = null) {
   if ($params == null) {
     return array('jenis_peralatan' => null,'banyaknya' => null,'anggaran' => null,'tahun' => null,'status' => null);
+  }else {
+    return $params;
+  }
+}
+
+function detailKegiatanFields($params = null) {
+  if ($params == null) {
+    return (object) array('no_detail' => null, 'no' => null, 'kode_rekening' => null, 'uraian' => null, 'qty' => null, 'anggaran' => null, 'jurusan_id' => null, 'status_kajur');
   }else {
     return $params;
   }
@@ -50,7 +66,12 @@ function selectOptionSelected($value, $current_value) {
   if ($value == $current_value) {
     return "selected";
   }
+}
 
+function checked($rka, $value) {
+  if ($rka[$value] == 1) {
+    return "checked";
+  }
 }
 
 function yearSelect(){
@@ -75,4 +96,30 @@ function checkPerencanaan($kode_rekening){
     return true;
   }
     return false;
+}
+
+function listMonth() {
+  return array('januari', 'februari', 'maret', 'april', 'mei', 'juni', 'juli', 'agustus', 'september', 'oktober', 'november', 'desember');
+}
+
+function money($amount) {
+  return "Rp. " . number_format($amount, 0, ',', '.');
+}
+
+function status_kajur($status) {
+  if ($status == 2) {
+    return "Ditolak";
+  }else {
+    return ($status ? "Diterima" : "Dalam Proses");
+  }
+}
+
+function status_color($status) {
+  if ($status == 2) {
+    return "table-danger";
+  }else if($status == 1) {
+    return "table-success";
+  }else {
+    return "";
+  }
 }

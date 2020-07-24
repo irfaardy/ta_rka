@@ -41,14 +41,14 @@ function admin_menus() {
     array(
       'text' => 'RKA',
       'icon' => 'fas fa-clipboard-list',
-      'url'  => base_url('#'),
+      'url'  => base_url('/Rka'),
       'dropdown_menus' => null,
       'user' => [2, 1]
     ),
     array(
       'text' => 'Status RKA',
       'icon' => 'fas fa-clipboard-check',
-      'url'  => base_url('#'),
+      'url'  => base_url('/Rka/status'),
       'dropdown_menus' => null,
       'user' => [2, 1]
     ),
@@ -61,10 +61,10 @@ function admin_menus() {
     ),
     array(
       'text' => 'Lihat RDKFF',
-      'icon' => 'fas fa-clipboard-check',
+      'icon' => 'far fa-list-alt',
       'url'  => base_url('#'),
       'dropdown_menus' => null,
-      'user' => [2]
+      'user' => [2, 1]
     ),
     array(
       'text' => 'Kegiatan RKA',
@@ -88,7 +88,7 @@ function admin_menus() {
                             [ 'text' => 'Cetak Laporan Fasilitas',
                               'url'  => base_url('/Fasilitas'),
                               'user' => [4]
-                            ], 
+                            ],
                             [ 'text' => 'Cetak Laporan RKA',
                               'url'  => base_url('#'),
                               'user' => [4]

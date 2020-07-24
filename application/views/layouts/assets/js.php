@@ -47,5 +47,8 @@ $(document).ready(function() {
 <!-- AdminLTE App -->
 <script src="<?= assets('js/adminlte.js') ?>"></script>
 
+<!-- masking -->
+<script src="<?= assets('js/jquery.mask.min.js') ?>"></script>
+
 <!-- Custom JS -->
 <script src="<?= assets('js/custom.js') ?>"></script>

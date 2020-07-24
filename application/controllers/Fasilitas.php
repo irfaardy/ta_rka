@@ -10,8 +10,8 @@ class Fasilitas extends CI_Controller {
 
 	}
 	public function index() {
-		$fasilitas = $this->fasilitas->getAll();
-    	$params = array("title" => "Fasilitas", 'fasilitas' => $fasilitas);
+		$fasilitas = $this->fasilitas->getAll(['tahun' => date("Y")]);
+    	$params = array("title" => "Laporan Fasilitas Laboratorium", 'fasilitas' => $fasilitas);
 		$this->load->template('fasilitas/index', $params);
 	}
 

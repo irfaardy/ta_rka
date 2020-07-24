@@ -58,7 +58,7 @@ $autoload['packages'] = array();
 |
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
-$autoload['libraries'] = array('database', 'session', 'auth', 'user_agent','form_validation');
+$autoload['libraries'] = array('database', 'session', 'auth', 'user_agent','form_validation','pdf');
 
 /*
 | -------------------------------------------------------------------
@@ -132,4 +132,4 @@ $autoload['language'] = array();
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
-$autoload['model'] = array('UserModel' => 'user', 'SasaranMutuModel' => 'sasaran_mutu', 'MataAnggaranModel' => 'mata_anggaran','JurusanModel' => 'jurusan','RDDKFModel' => 'rddkf','PerencanaanModel' => 'perencanaan', 'DetailKegiatan' => 'detail_kegiatan');
+$autoload['model'] = array('UserModel' => 'user', 'SasaranMutuModel' => 'sasaran_mutu', 'MataAnggaranModel' => 'mata_anggaran','JurusanModel' => 'jurusan','RDDKFModel' => 'rddkf','PerencanaanModel' => 'perencanaan', 'DetailKegiatan' => 'detail_kegiatan', 'FasilitasModel' => 'fasilitas');

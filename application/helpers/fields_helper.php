@@ -46,6 +46,14 @@ function rkaFields($params = null) {
   }
 }
 
+function fasilitasFields($params = null) {
+  if ($params == null) {
+    return array('jenis_peralatan' => null,'banyaknya' => null,'anggaran' => null,'tahun' => null,'status' => null);
+  }else {
+    return $params;
+  }
+}
+
 function selectOptionSelected($value, $current_value) {
   if ($value == $current_value) {
     return "selected";
@@ -59,13 +67,18 @@ function checked($rka, $value) {
 }
 
 function yearSelect(){
-  $mulai  =date('Y', strtotime('-10 year'));
+  $mulai  =date('Y', strtotime('-20 year'));
   $selesai = date('Y');
   $years = [];
   for($selesai; $selesai >= $mulai; $selesai--) {
     $years[] =$selesai;
   }
   return $years;
+}
+
+function jenisPeralatan(){
+  $jenis = ['alat_ukur' => 'Alat Ukur','pertukangan' => 'Pertukangan', 'elektronik' => 'Elektronik','kimia' => 'Kimia'];
+  return $jenis;
 }
 
 function checkPerencanaan($kode_rekening){

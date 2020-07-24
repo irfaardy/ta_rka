@@ -1,12 +1,12 @@
 <?php if (true): ?>
   <div class="mt-5">
-    <table class="table table-bordered table-striped display nowrap" id="tabel-rka" data-table-no-ordering style="width: 100%;">
+    <table class="table table-bordered display nowrap" id="tabel-rka" data-table-no-ordering style="width: 100%;">
       <thead>
         <tr>
           <th class="text-nowrap text-center align-middle" rowspan="2">No</th>
           <th class="text-nowrap text-center align-middle" rowspan="2">Kegiatan</th>
           <th class="text-nowrap text-center" colspan="12">Bulan</th>
-          <th class="text-nowrap text-center align-middle" rowspan="2">Aksi</th>
+          <th class="text-nowrap text-center align-middle" rowspan="2">Status</th>
         </tr>
         <tr>
           <th class="text-center" style="min-width: 70px">Januari</th>
@@ -25,7 +25,7 @@
       </thead>
       <tbody>
         <?php foreach ($obj as $perencanaan): ?>
-          <tr>
+          <tr class="<?php echo status_color($perencanaan->status_kajur) ?>">
             <td><?php echo $perencanaan->no ?></td>
             <td><?php echo $perencanaan->kegiatan ?></td>
             <td class="text-center"><?php echo ($perencanaan->januari ? "<i class='fas fa-check'>" : "-") ?></td>
@@ -42,19 +42,8 @@
             <td class="text-center"><?php echo ($perencanaan->desember ? "<i class='fas fa-check'>" : "-") ?></td>
 
             <!-- actions -->
-            <td style="min-width: 200px;">
-              <a href="<?php echo base_url('/Kegiatan/index/'.$perencanaan->no) ?>" class="btn btn-xs btn-default">
-                <i class="fas fa-clipboard-list fa-fw"></i>
-                Detail Kegiatan
-              </a>
-              <a href="<?php echo base_url('/Rka/edit/'.$perencanaan->no) ?>" class="btn btn-xs btn-warning">
-                <i class="fas fa-edit fa-fw"></i>
-                Edit
-              </a>
-              <button class="btn btn-xs btn-danger" data-action="<?php echo base_url('/Rka/delete/'.$perencanaan->no) ?>" data-delete>
-                <i class="fas fa-trash fa-fw"></i>
-                Hapus
-              </a>
+            <td style="min-width: 80px;">
+              <b><?php echo status_kajur($perencanaan->status_kajur) ?></b>
             </td>
         <?php endforeach; ?>
       </tbody>

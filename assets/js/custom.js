@@ -18,5 +18,8 @@ $(document).ready(function(){
     $myModal.modal('show');
 
     $myModal.find("form").attr("action", action);
-  })
+  });
+
+  // input money format
+  $("[data-money]").mask('0.000.000.000', {reverse: true});
 });

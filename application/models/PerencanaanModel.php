@@ -70,21 +70,8 @@ class PerencanaanModel extends CI_Model {
     return [
       [
         'field' => 'no_sarmut',
-        'label' => 'Kode Rekening',
+        'label' => 'Sasaran Mutu',
         'rules' => 'required|integer',
-
-      ], [
-        'field' => 'kode_rekening',
-        'label' => 'Nama Rekening',
-        'rules' => 'required',
-      ],[
-        'field' => 'tahun',
-        'label' => 'Tahun',
-        'rules' => 'required|integer',
-      ],[
-        'field' => 'uraian',
-        'label' => 'Uraian',
-        'rules' => 'required',
       ],
 
     ];

@@ -6,30 +6,30 @@ class Fasilitas extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 
-		$this->auth->protect([4,3,2]);
+		$this->auth->protect([4,2]);
 
 	}
 	public function index() {
-		$fasilitas = $this->fasilitas->getAll(['tahun' => date("Y")]);
+		$fasilitas = $this->fasilitas->getAll(['tahun' => !empty($this->input->get('tahun'))?$this->input->get('tahun'):date("Y")]);
     	$params = array("title" => "Laporan Fasilitas Laboratorium", 'fasilitas' => $fasilitas);
 		$this->load->template('fasilitas/index', $params);
 	}
 
 	function tambah() {
-		$this->auth->protect([3]);
+		$this->auth->protect([2]);
 		$params = array("title" => "Fasilitas", "obj" => null, "action" => base_url("/Fasilitas/save"));
 		$this->load->template('fasilitas/form', $params);
 	}
 
 	function edit($id) {
-		$this->auth->protect([3]);
+		$this->auth->protect([2]);
 		$obj = $this->fasilitas->get($id);
 		$params = array("title" => "Fasilitas", "obj" => $obj, "action" => base_url("/Fasilitas/update/$id"));
 		$this->load->template('fasilitas/form', $params);
 	}
 
 	function save() {
-		$this->auth->protect([3]);
+		$this->auth->protect([2]);
 		$this->fasilitas->validate();
 		if($this->fasilitas->create()){
 			$this->session->set_flashdata('success','Berhasil Menambahkan data Fasilitas.');
@@ -42,7 +42,7 @@ class Fasilitas extends CI_Controller {
 	}
 
 	function update($id) {
-		$this->auth->protect([3]);
+		$this->auth->protect([2]);
 		if($this->fasilitas->update($id)){
 			$this->session->set_flashdata('success','Berhasil Mengubah data Fasilitas.');
 
@@ -54,7 +54,7 @@ class Fasilitas extends CI_Controller {
 	}
 
 	function delete($id) {
-		$this->auth->protect([3]);
+		$this->auth->protect([2]);
 		if(checkPerencanaan($id)){
 			$this->session->set_flashdata('fail','Tidak dapat menghapus Fasilitas. Karena sedang dipakai di perencanaan.');
 			return redirect(base_url('/Fasilitas'));

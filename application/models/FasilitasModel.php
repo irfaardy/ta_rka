@@ -42,6 +42,30 @@ class FasilitasModel extends CI_Model {
 			return false;
 		}
   }
+  public function approve($id) {
+    $params['jurusan_id'] = $this->auth->user()->jurusan_id;
+    $params[$this->primary] = $id;
+
+    try{
+      $this->db->where($params);
+      $this->db->update($this->table, ['status'=>'DITERIMA']);
+      return true;
+    } catch(\Exception $e){
+      return false;
+    }
+  }
+  public function revoke($id) {
+    $params['jurusan_id'] = $this->auth->user()->jurusan_id;
+    $params[$this->primary] = $id;
+
+    try{
+      $this->db->where($params);
+      $this->db->update($this->table, ['status'=>'DITOLAK']);
+      return true;
+    } catch(\Exception $e){
+      return false;
+    }
+  }
 
   public function delete($id) {
     $params = array($this->primary => $id);

@@ -55,10 +55,6 @@ class Fasilitas extends CI_Controller {
 
 	function delete($id) {
 		$this->auth->protect([2]);
-		if(checkPerencanaan($id)){
-			$this->session->set_flashdata('fail','Tidak dapat menghapus Fasilitas. Karena sedang dipakai di perencanaan.');
-			return redirect(base_url('/Fasilitas'));
-		}
 		if($this->fasilitas->delete($id)){
 			$this->session->set_flashdata('success','Berhasil Menghapus data Fasilitas.');
 
@@ -83,6 +79,28 @@ class Fasilitas extends CI_Controller {
         $this->pdf->filename = "Laporan_Fasilitas_".$this->input->get('tahun').".pdf";
         $this->pdf->load_view('pdf/pdf_cetak', ['data'=>$data]);
 
+	}
+	public function approve($id){
+		$obj = $this->fasilitas->get($id);
+		if(!empty($obj)){
+			$this->session->set_flashdata('fail','Data tidak ditemukan');
+			return redirect(base_url('/Fasilitas'));
+		}
+		$this->fasilitas->approve($id);
+		$this->session->set_flashdata('success','Berhasil Menyetujui Fasilitas.');
+
+		return redirect(base_url('/Fasilitas'));
+	}
+	public function revoke($id){
+		$obj = $this->fasilitas->get($id);
+		if(!empty($obj)){
+			$this->session->set_flashdata('fail','Data tidak ditemukan');
+			return redirect(base_url('/Fasilitas'));
+		}
+		$this->fasilitas->approve($id);
+		$this->session->set_flashdata('success','Berhasil Menolak Fasilitas.');
+
+		return redirect(base_url('/Fasilitas'));
 	}
 
 }

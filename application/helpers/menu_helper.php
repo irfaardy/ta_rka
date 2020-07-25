@@ -46,17 +46,33 @@ function admin_menus() {
       'user' => [2, 1]
     ),
     array(
+      'text' => 'Fasilitas Laboratorium',
+      'icon' => 'fas fa-list',
+      'url'  => base_url('/Fasilitas'),
+      'dropdown_menus' => null,
+      'user' => [2]
+    ),
+    array(
       'text' => 'Status RKA',
       'icon' => 'fas fa-clipboard-check',
       'url'  => base_url('/Rka/status'),
       'dropdown_menus' => null,
-      'user' => [2, 1]
+      'user' => [1]
     ),
     array(
       'text' => 'Status Pengajuan',
-      'icon' => 'fas fa-clipboard-check',
+      'icon' => 'fas fa-clipboard-list',
       'url'  => base_url('#'),
-      'dropdown_menus' => null,
+      'dropdown_menus' => [
+        [ 'text' => 'Rka',
+          'url'  => base_url('/Rka/status'),
+          'user' => [4]
+        ],
+        [ 'text' => 'Fasilitas',
+          'url'  => base_url('#'),
+          'user' => [4]
+        ],
+      ],
       'user' => [2]
     ),
     array(
@@ -85,15 +101,15 @@ function admin_menus() {
       'icon' => 'fas fa-print',
       'url'  => base_url('#'),
       'dropdown_menus' => [
-                            [ 'text' => 'Cetak Laporan Fasilitas',
-                              'url'  => base_url('/Fasilitas'),
-                              'user' => [4]
-                            ],
-                            [ 'text' => 'Cetak Laporan RKA',
-                              'url'  => base_url('#'),
-                              'user' => [4]
-                            ],
-                          ],
+        [ 'text' => 'Cetak Laporan Fasilitas',
+          'url'  => base_url('/Fasilitas'),
+          'user' => [4]
+        ],
+        [ 'text' => 'Cetak Laporan RKA',
+          'url'  => base_url('#'),
+          'user' => [4]
+        ],
+      ],
       'user' => [4]
     ),
     array(

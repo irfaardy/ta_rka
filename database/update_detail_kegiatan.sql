@@ -8,3 +8,5 @@ ALTER TABLE `tb_detail_kegiatan` ADD `status_kajur` TINYINT NOT NULL AFTER `juru
 ALTER TABLE `tb_perencanaan`
   DROP `qty`,
   DROP `anggaran`;
+
+ALTER TABLE `tb_perencanaan` ADD `user_level` TINYINT NOT NULL AFTER `jurusan_id`;

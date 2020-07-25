@@ -6,7 +6,7 @@ class Fasilitas extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 
-		$this->auth->protect([4,3]);
+		$this->auth->protect([4,3,2]);
 
 	}
 	public function index() {

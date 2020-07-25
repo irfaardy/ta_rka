@@ -7,17 +7,17 @@ class PerencanaanModel extends CI_Model {
 
   public function getAll() {
     $this->db->where('jurusan_id', AuthData()->jurusan_id);
+    $this->db->where('user_level', AuthData()->level);
     return $this->db->get($this->table)->result();
   }
 
   public function get($id) {
-
     $this->db->where('jurusan_id', AuthData()->jurusan_id);
+    $this->db->where('user_level', AuthData()->level);
     return $this->db->where($this->primary, $id)->get($this->table)->row();
   }
 
   public function cekKodeRekening($id) {
-
     $this->db->where('jurusan_id', AuthData()->jurusan_id);
     return $this->db->where('kode_rekening', $id)->get($this->table)->num_rows();
   }
@@ -25,6 +25,8 @@ class PerencanaanModel extends CI_Model {
   public function create() {
 		$params = $this->input->post();
 		$params['jurusan_id'] = $this->auth->user()->jurusan_id;
+    $params['user_level'] = $this->auth->user()->level;
+
 		try{
 			$this->db->insert($this->table, $params);
 			return true;

@@ -1,3 +1,4 @@
+
 <?php if ($obj != null): ?>
   <div class="table-responsive mt-5">
     <table class="table table-bordered table-striped" id="fasilitas" >
@@ -8,11 +9,11 @@
           <th class="text-nowrap">Banyaknya</th>
           <th class="text-nowrap">Anggaran(Rp)</th>
        
-          <th class="text-nowrap">Total(Rp)</th>
           <?php if(AuthData()->level == 2 || AuthData()->level == 3 ):?>
             <th class="text-nowrap">Aksi</th>
           <?php endif;?>
          
+          <th class="text-nowrap">Total(Rp)</th>
        
         </tr>
       </thead>
@@ -43,13 +44,15 @@
              
                <!-- actions -->
             <td style="min-width: 200px;">
-              <a href="<?= base_url('/Fasilitas/approve/'.$fasilitas->no_fasilitas) ?>" class="btn btn-xs btn-success">
+              <a href="<?= base_url('/Fasilitas/edit/'.$fasilitas->no_fasilitas) ?>" class="btn btn-xs btn-warning">
                 <i class="fas fa-check-circle fa-fw"></i>
+                Edit
               </a>
              
-              <a class="btn btn-xs btn-danger" href="<?= base_url('/Fasilitas/revoke/'.$fasilitas->no_fasilitas) ?>" >
+              <button class="btn btn-xs btn-danger" data-action="<?= base_url('/Fasilitas/delete/'.$fasilitas->no_fasilitas) ?>" data-delete>
                 <i class="fas fa-times-circle fa-fw"></i>
-              </a>
+                Hapus
+              </button>
             </td>
              <?php endif;?>
            

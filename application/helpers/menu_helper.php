@@ -75,6 +75,22 @@ function admin_menus() {
       ],
       'user' => [2]
     ),
+     array(
+      'text' => 'Pengajuan Fasilitas Lab',
+      'icon' => 'fas fa-clipboard-list',
+      'url'  => base_url('#'),
+      'dropdown_menus' => [
+        [ 'text' => 'Data Pengajuan',
+          'url'  => base_url('/Fasilitas/'),
+          'user' => [3]
+        ],
+        [ 'text' => 'Pengajuan Ditolak',
+          'url'  => base_url('/Fasilitas/ditolak'),
+          'user' => [3]
+        ],
+      ],
+      'user' => [3]
+    ),
     array(
       'text' => 'Lihat RDKFF',
       'icon' => 'far fa-list-alt',

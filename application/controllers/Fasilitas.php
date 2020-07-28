@@ -6,13 +6,33 @@ class Fasilitas extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 
-		$this->auth->protect([4,2]);
+		$this->auth->protect([4,2,3]);
 
 	}
 	public function index() {
-		$fasilitas = $this->fasilitas->getAll(['tahun' => !empty($this->input->get('tahun'))?$this->input->get('tahun'):date("Y")]);
-    	$params = array("title" => "Laporan Fasilitas Laboratorium", 'fasilitas' => $fasilitas);
+		$where = ['tahun' => !empty($this->input->get('tahun'))?$this->input->get('tahun'):date("Y")];
+		if(AuthData()->level == 3){
+			$title = "Data Pengajuan Fasilitas Laboratorium";
+			$where['status'] = null; 
+		} else{
+			$title = "Laporan Fasilitas Laboratorium";
+		}
+		$fasilitas = $this->fasilitas->getAll($where);
+		
+    	$params = array("title" => $title , 'fasilitas' => $fasilitas);
 		$this->load->template('fasilitas/index', $params);
+	}
+	public function ditolak() {
+		$this->auth->protect([3]);
+		$where = ['tahun' => !empty($this->input->get('tahun'))?$this->input->get('tahun'):date("Y")];
+		
+		$title = "Data Pengajuan Fasilitas Laboratorium Ditolak";
+		$where['status'] = "DITOLAK"; 
+		
+		$fasilitas = $this->fasilitas->getAll($where);
+		
+    	$params = array("title" => $title , 'fasilitas' => $fasilitas);
+		$this->load->template('fasilitas/index_ditolak', $params);
 	}
 
 	function tambah() {
@@ -22,7 +42,7 @@ class Fasilitas extends CI_Controller {
 	}
 
 	function edit($id) {
-		$this->auth->protect([2]);
+		$this->auth->protect([2,3]);
 		$obj = $this->fasilitas->get($id);
 		$params = array("title" => "Fasilitas", "obj" => $obj, "action" => base_url("/Fasilitas/update/$id"));
 		$this->load->template('fasilitas/form', $params);
@@ -42,7 +62,7 @@ class Fasilitas extends CI_Controller {
 	}
 
 	function update($id) {
-		$this->auth->protect([2]);
+		$this->auth->protect([2,3]);
 		if($this->fasilitas->update($id)){
 			$this->session->set_flashdata('success','Berhasil Mengubah data Fasilitas.');
 
@@ -82,7 +102,7 @@ class Fasilitas extends CI_Controller {
 	}
 	public function approve($id){
 		$obj = $this->fasilitas->get($id);
-		if(!empty($obj)){
+		if(empty($obj)){
 			$this->session->set_flashdata('fail','Data tidak ditemukan');
 			return redirect(base_url('/Fasilitas'));
 		}
@@ -93,11 +113,11 @@ class Fasilitas extends CI_Controller {
 	}
 	public function revoke($id){
 		$obj = $this->fasilitas->get($id);
-		if(!empty($obj)){
+		if(empty($obj)){
 			$this->session->set_flashdata('fail','Data tidak ditemukan');
 			return redirect(base_url('/Fasilitas'));
 		}
-		$this->fasilitas->approve($id);
+		$this->fasilitas->revoke($id);
 		$this->session->set_flashdata('success','Berhasil Menolak Fasilitas.');
 
 		return redirect(base_url('/Fasilitas'));

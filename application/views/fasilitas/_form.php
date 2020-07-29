@@ -4,7 +4,7 @@
       <label for="">Jenis Peralatan</label>
     </div>
     <div class="col-9">
-      <input type="text" class="form-control" name="jenis_peralatan" required="">
+      <input type="text" class="form-control" name="jenis_peralatan" value="<?php echo $jenis_peralatan ?>" required="">
     <!--  <select name="jenis_peralatan" class="form-control">
        <?php foreach(jenisPeralatan() as $k => $v): ?>
         <option value="<?= $k ?>" <?php if ($obj != null): echo selectOptionSelected($k, $obj->jenis_peralatan); endif;?>><?= $v ?></option>
@@ -29,7 +29,7 @@
       <label for="">Anggaran (Rp)</label>
     </div>
     <div class="col-9">
-      <input type="text" required min="1" class="form-control" name="anggaran" data-money value="<?php echo $banyaknya ?>" />
+      <input type="text" required min="1" class="form-control" name="anggaran" data-money value="<?php echo $anggaran*1 ?>" />
     </div>
   </div>
 </div>

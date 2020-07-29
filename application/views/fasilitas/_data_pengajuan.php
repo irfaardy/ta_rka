@@ -27,11 +27,11 @@
            
             <td align="center" style="min-width: 200px;">
               <?php if($fasilitas->status == "DITERIMA"):?>
-                <span class="badge badge-success"><i class="fas fa-check-circle"></i> DITERIMA</span>
+                <span class="badge badge-success"><i class="fas fa-check-circle mr-1"></i> DITERIMA</span>
               <?php elseif($fasilitas->status == "DITOLAK"):?>
-                  <span class="badge badge-danger"><i class="fas fa-times-circle"></i> DITOLAK</span>
+                  <span class="badge badge-danger"><i class="fas fa-times-circle mr-1"></i> DITOLAK</span>
                  <?php else:?>
-                  -
+                  <span class="badge badge-secondary"><i class="fas fa-sync fa-spin mr-1"></i> PROSES PENGAJUAN</span>
                  <?php endif;?>
             </td>
            

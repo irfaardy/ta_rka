@@ -122,7 +122,7 @@ class Fasilitas extends CI_Controller {
 
 		return redirect(base_url('/Fasilitas'));
 	}
-	public function statuspengajuan(){
+	public function status(){
 		$where = ['tahun' => !empty($this->input->get('tahun'))?$this->input->get('tahun'):date("Y")];
 			$title = "Status Pengajuan Fasilitas";
 		$fasilitas = $this->fasilitas->getAll($where);

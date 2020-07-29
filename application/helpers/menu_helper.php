@@ -75,6 +75,22 @@ function admin_menus() {
       ],
       'user' => [2]
     ),
+    array(
+     'text' => 'Pengajuan RKA',
+     'icon' => 'fas fa-calendar',
+     'url'  => base_url('#'),
+     'dropdown_menus' => [
+       [ 'text' => 'Data Pengajuan',
+         'url'  => base_url('/Rka/'),
+         'user' => [3]
+       ],
+       [ 'text' => 'Pengajuan Ditolak',
+         'url'  => base_url('/Rka/ditolak'),
+         'user' => [3]
+       ],
+     ],
+     'user' => [3]
+   ),
      array(
       'text' => 'Pengajuan Fasilitas Lab',
       'icon' => 'fas fa-clipboard-list',
@@ -94,23 +110,9 @@ function admin_menus() {
     array(
       'text' => 'Lihat RDKFF',
       'icon' => 'far fa-list-alt',
-      'url'  => base_url('#'),
+      'url'  => base_url('/RDDKF/index'),
       'dropdown_menus' => null,
-      'user' => [2, 1]
-    ),
-    array(
-      'text' => 'Kegiatan RKA',
-      'icon' => 'fas fa-calendar',
-      'url'  => base_url('#'),
-      'dropdown_menus' => null,
-      'user' => [3]
-    ),
-    array(
-      'text' => 'Persetujuan RKA',
-      'icon' => 'fas fa-calendar-check',
-      'url'  => base_url('#'),
-      'dropdown_menus' => null,
-      'user' => [3]
+      'user' => [2, 1, 3]
     ),
     array(
       'text' => 'Cetak Laporan',
@@ -133,7 +135,7 @@ function admin_menus() {
       'icon' => 'fas fa-bars',
       'url'  => base_url('/RDDKF'),
       'dropdown_menus' => null,
-      'user' => [4, 3]
+      'user' => [4]
     ),
     array(
       'text' => 'Logout',

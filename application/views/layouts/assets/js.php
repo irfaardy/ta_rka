@@ -21,7 +21,6 @@ $(document).ready(function() {
 <script type="text/javascript">
 $(document).ready(function() {
     $('#users').DataTable();
-    $('#sasaran_mutu').DataTable();
     $('#mata_anggaran').DataTable();
     $('#jurusan').DataTable();
     $('#rddkf').DataTable();

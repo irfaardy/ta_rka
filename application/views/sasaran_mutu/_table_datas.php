@@ -1,6 +1,6 @@
 <?php if ($obj != null): ?>
   <div class="mt-5">
-    <table class="table table-bordered table-striped display nowrap" id="sasaran_mutu">
+    <table class="table table-bordered table-striped display nowrap" data-table id="sasaran_mutu">
       <thead>
         <tr>
           <th class="text-nowrap">No</th>
@@ -8,14 +8,14 @@
           <th class="text-nowrap">Indikator</th>
           <th class="text-nowrap">Turunan</th>
           <th class="text-nowrap">Bobot (%)</th>
-          <th class="text-nowrap">target</th>
-          <th class="text-nowrap">akar_masalah</th>
-          <th class="text-nowrap">tkp</th>
-          <th class="text-nowrap">d_akhir_taun</th>
-          <th class="text-nowrap">tkw1</th>
-          <th class="text-nowrap">tkw2</th>
-          <th class="text-nowrap">tkw3</th>
-          <th class="text-nowrap">tkw4</th>
+          <th class="text-nowrap">Target</th>
+          <th class="text-nowrap">Akar Masalah</th>
+          <th class="text-nowrap">Tindakan Koreksi Perbaikan</th>
+          <th class="text-nowrap">Data Akhir Tahun</th>
+          <th class="text-nowrap">TW 1</th>
+          <th class="text-nowrap">TW 2</th>
+          <th class="text-nowrap">TW 3</th>
+          <th class="text-nowrap">TW 4</th>
           <th>&nbsp;</th>
         </tr>
       </thead>

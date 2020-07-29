@@ -14,17 +14,23 @@
           <tr>
             <td><?php echo $no ?></td>
             <td><?php echo ($rddkf->tahun) ? $rddkf->tahun : "-"; ?></td>
-            <td><a href="<?= base_url('/Download/RDDKF/'.$rddkf->kode_rddkf) ?>"><?php echo ($rddkf->rddkf) ? $rddkf->rddkf : "-"; ?></a></td>
+            <td><?php echo ($rddkf->rddkf) ? $rddkf->rddkf : "-"; ?></td>
             <!-- actions -->
             <td style="min-width: 200px;">
-              <a href="<?php echo base_url('/RDDKF/edit/'.$rddkf->kode_rddkf) ?>" class="btn btn-xs btn-warning">
-                <i class="fas fa-edit fa-fw"></i>
-                Edit
+              <a href="<?= base_url('/Download/RDDKF/'.$rddkf->kode_rddkf) ?>" class="btn btn-xs btn-default">
+                <i class="fas fa-download fa-fw"></i>
+                Download
               </a>
-              <button class="btn btn-xs btn-danger" data-action="<?php echo base_url('/RDDKF/delete/'.$rddkf->kode_rddkf) ?>" data-delete>
-                <i class="fas fa-trash fa-fw"></i>
-                Hapus
-              </a>
+              <?php if (in_array(AuthData()->level, [4])): ?>
+                <a href="<?php echo base_url('/RDDKF/edit/'.$rddkf->kode_rddkf) ?>" class="btn btn-xs btn-warning">
+                  <i class="fas fa-edit fa-fw"></i>
+                  Edit
+                </a>
+                <button class="btn btn-xs btn-danger" data-action="<?php echo base_url('/RDDKF/delete/'.$rddkf->kode_rddkf) ?>" data-delete>
+                  <i class="fas fa-trash fa-fw"></i>
+                  Hapus
+                </a>
+              <?php endif; ?>
             </td>
           <?php $no++; ?>
         <?php endforeach; ?>

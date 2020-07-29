@@ -6,7 +6,7 @@ class Kegiatan extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 
-		$this->auth->protect([1,2]);
+		$this->auth->protect([1,2,3]);
 	}
 
 	function index($no_perencanaan) {

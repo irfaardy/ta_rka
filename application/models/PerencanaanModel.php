@@ -1,14 +1,30 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+// status kajur :
+//   0 : Belum di review,
+//   1 : Disetujui,
+//   2 : Ditolak
+
 class PerencanaanModel extends CI_Model {
   private $table = "tb_perencanaan";
   private $primary = "no";
 
-  public function getAll() {
-    $this->db->where('jurusan_id', AuthData()->jurusan_id);
-    $this->db->where('user_level', AuthData()->level);
-    return $this->db->get($this->table)->result();
+  public function getAll($status = ['0', '1']) {
+    $jurusan_id = AuthData()->jurusan_id;
+    $level = AuthData()->level;
+
+    $this->db->select('*');
+    $this->db->from($this->table);
+    $this->db->join('tb_sasaran_mutu', 'tb_sasaran_mutu.no_sarmut = tb_perencanaan.no_sarmut');
+    $this->db->where('tb_perencanaan.jurusan_id', $jurusan_id);
+    if ($level != "3") {
+      $this->db->where('tb_perencanaan.user_level', $level);
+    }
+    if ($level == "3") {
+      $this->db->where_in('tb_perencanaan.status_kajur', $status);
+    }
+    return $this->db->get()->result();
   }
 
   public function get($id) {
@@ -42,6 +58,16 @@ class PerencanaanModel extends CI_Model {
 		try{
       $this->db->where($this->primary, $id);
 			$this->db->update($this->table, $params);
+			return true;
+		} catch(\Exception $e){
+			return false;
+		}
+  }
+
+  public function update_status($id, $param) {
+		try{
+      $this->db->where($this->primary, $id);
+			$this->db->update($this->table, $param);
 			return true;
 		} catch(\Exception $e){
 			return false;

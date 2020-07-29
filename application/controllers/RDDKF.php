@@ -6,7 +6,7 @@ class RDDKF extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 
-		$this->auth->protect([4,3]);
+		$this->auth->protect([4,3,1,2]);
 
 	}
 	public function index() {
@@ -35,8 +35,8 @@ class RDDKF extends CI_Controller {
 			return redirect($this->agent->referrer());
 		}
 			$this->upload();
-		
-        	 	$upload_data = $this->upload->data(); 
+
+        	 	$upload_data = $this->upload->data();
   				$file_name =   $upload_data['file_name'];
                 if($this->rddkf->create(['tahun' => $this->input->post('tahun'),'rddkf' => $_FILES['rddkf']['name']])){
 					$this->session->set_flashdata('success','Berhasil Menambahkan data rddkf.');
@@ -46,9 +46,9 @@ class RDDKF extends CI_Controller {
 					$this->session->set_flashdata('fail','Gagal menambahkan data rddkf.');
 					return redirect(base_url('/RDDKF/tambah'));
 				}
-        
 
-		
+
+
 	}
 
 	function update($id) {

@@ -22,6 +22,8 @@ class FasilitasModel extends CI_Model {
   public function create() {
 		$params = $this->input->post();
 		$params['jurusan_id'] = $this->auth->user()->jurusan_id;
+    $params['anggaran'] = $this->removeMasking($params['anggaran']);
+
 		try{
 			$this->db->insert($this->table, $params);
 			return true;
@@ -33,6 +35,7 @@ class FasilitasModel extends CI_Model {
   public function update($id) {
     $params = $this->input->post();
     $params['jurusan_id'] = $this->auth->user()->jurusan_id;
+    $params['anggaran'] = $this->removeMasking($params['anggaran']);
 
 		try{
       $this->db->where($this->primary, $id);
@@ -78,16 +81,16 @@ class FasilitasModel extends CI_Model {
 			return false;
 		}
   }
-  
+
   ///Validator///
- 
+
   private function rules(){
     return [
       [
         'field' => 'jenis_peralatan',
         'label' => 'Jenis Peralatan',
         'rules' => 'required',
-        
+
       ], [
         'field' => 'banyaknya',
         'label' => 'Banyaknya',
@@ -95,13 +98,13 @@ class FasilitasModel extends CI_Model {
       ],[
         'field' => 'anggaran',
         'label' => 'Anggaran',
-        'rules' => 'required|numeric',
+        'rules' => 'required',
       ],[
         'field' => 'tahun',
         'label' => 'Tahun',
         'rules' => 'required|integer',
       ],
-    
+
     ];
   }
   public function validate(){
@@ -112,5 +115,9 @@ class FasilitasModel extends CI_Model {
         $this->session->set_flashdata('fail','Gagal menambahkan data Mata Anggaran. '.validation_errors());
         return redirect($this->agent->referrer());
       }
+  }
+
+  private function removeMasking($amount) {
+    return str_replace(".", "", $amount);
   }
 }

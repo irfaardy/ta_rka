@@ -26,10 +26,10 @@
 <div class="form-group">
   <div class="row">
     <div class="col-3">
-      <label for="">Anggaran</label>
+      <label for="">Anggaran (Rp)</label>
     </div>
     <div class="col-9">
-      <input type="number" required="" min="1" class="form-control" name="anggaran" value="<?php echo $banyaknya ?>" />
+      <input type="text" required min="1" class="form-control" name="anggaran" data-money value="<?php echo $banyaknya ?>" />
     </div>
   </div>
 </div>
@@ -47,5 +47,3 @@
     </div>
   </div>
 </div>
-
-

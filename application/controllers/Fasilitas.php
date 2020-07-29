@@ -122,5 +122,13 @@ class Fasilitas extends CI_Controller {
 
 		return redirect(base_url('/Fasilitas'));
 	}
+	public function statuspengajuan(){
+		$where = ['tahun' => !empty($this->input->get('tahun'))?$this->input->get('tahun'):date("Y")];
+			$title = "Status Pengajuan Fasilitas";
+		$fasilitas = $this->fasilitas->getAll($where);
+		
+    	$params = array("title" => $title , 'fasilitas' => $fasilitas);
+		$this->load->template('fasilitas/index_pengajuan', $params);
+	}
 
 }

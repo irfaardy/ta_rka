@@ -12,8 +12,11 @@ class JurusanModel  extends CI_Model {
 		];
 	}
 
- 	public function getAll() {
-    return $this->db->get($this->table)->result();
+ 	public function getAll($order=false) {
+ 		if($order){
+ 		 	$this->db->order_by('nama','ASC');
+ 		 }
+    	return $this->db->get($this->table)->result();
   }
 
 	public function get($id) {

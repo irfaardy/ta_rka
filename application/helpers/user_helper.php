@@ -20,7 +20,7 @@ function userLevel($level = null){
 }
 function jurusanList(){
 	$CI = &get_instance();
-	return $CI->jurusan->getAll();
+	return $CI->jurusan->getAll(true);
 }
 function jurusan($id){
 	$CI = &get_instance();

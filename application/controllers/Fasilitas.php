@@ -18,7 +18,7 @@ class Fasilitas extends CI_Controller {
 			$title = "Laporan Fasilitas Laboratorium";
 		}
 		$fasilitas = $this->fasilitas->getAll($where);
-		
+
     	$params = array("title" => $title , 'fasilitas' => $fasilitas);
 		$this->load->template('fasilitas/index', $params);
 	}

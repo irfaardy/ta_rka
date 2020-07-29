@@ -1,4 +1,4 @@
-<form action="<?php echo $url ?>" method="GET">
+<form action="<?php echo $url ?>" target="_blank" method="GET">
    <div class="row">
       <div class="col-md-1 col-sm-1">
          <select name="tahun" class="form-control">

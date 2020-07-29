@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="<?= assets('css/adminlte.min.css') ?>">
+<title>Laporan Pengajuan Fasilitas</title>
 <table width="100%" class="table table-bordered">
 <thead>
          <tr>

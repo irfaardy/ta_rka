@@ -13,24 +13,33 @@ class Fasilitas extends CI_Controller {
 		$where = ['tahun' => !empty($this->input->get('tahun'))?$this->input->get('tahun'):date("Y")];
 		if(AuthData()->level == 3){
 			$title = "Data Pengajuan Fasilitas Laboratorium";
-			$where['status'] = null; 
+			$where['status'] = null;
 		} else{
 			$title = "Laporan Fasilitas Laboratorium";
 		}
 		$fasilitas = $this->fasilitas->getAll($where);
-		
+
     	$params = array("title" => $title , 'fasilitas' => $fasilitas);
 		$this->load->template('fasilitas/index', $params);
 	}
+	public function status() {
+		$where = ['tahun' => !empty($this->input->get('tahun'))?$this->input->get('tahun'):date("Y")];
+		$title = "Status Laporan Fasilitas Laboratorium";
+		$fasilitas = $this->fasilitas->getAll($where);
+
+    $params = array("title" => $title , 'fasilitas' => $fasilitas);
+		$this->load->template('fasilitas/status', $params);
+	}
+
 	public function ditolak() {
 		$this->auth->protect([3]);
 		$where = ['tahun' => !empty($this->input->get('tahun'))?$this->input->get('tahun'):date("Y")];
-		
+
 		$title = "Data Pengajuan Fasilitas Laboratorium Ditolak";
-		$where['status'] = "DITOLAK"; 
-		
+		$where['status'] = "DITOLAK";
+
 		$fasilitas = $this->fasilitas->getAll($where);
-		
+
     	$params = array("title" => $title , 'fasilitas' => $fasilitas);
 		$this->load->template('fasilitas/index_ditolak', $params);
 	}

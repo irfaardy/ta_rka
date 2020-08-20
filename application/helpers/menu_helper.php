@@ -69,7 +69,7 @@ function admin_menus() {
           'user' => [4]
         ],
         [ 'text' => 'Fasilitas',
-          'url'  => base_url('#'),
+          'url'  => base_url('Fasilitas/status'),
           'user' => [4]
         ],
       ],

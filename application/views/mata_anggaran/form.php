@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-lg-12">
-      <h4>Input Mata Anggaran</h4>
+      <h4><?= empty($obj)?"Input":"Ubah"?> Mata Anggaran</h4>
       <hr class="mb-4">
 
       <form class="" action="<?php echo $action ?>" method="post">
@@ -13,6 +13,7 @@
 
         <hr class="my-4">
         <div class="form-group text-right">
+          <a href="<?= base_url('/MataAnggaran') ?>" type="submit" class="btn btn-warning">Batal</a>
           <button type="submit" class="btn btn-primary">Simpan</button>
         </div>
       </form>

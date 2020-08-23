@@ -29,7 +29,7 @@
         }
 	</style>
 <table width="100%" class="table table-bordered">
-	<div align="center"> <h3>PROGRAM KERJA TAHUN ANGGARAN <?= $tahun ?></h3>
+	<div align="center"> <h3>PROGRAM KERJA TAHUN ANGGARAN <?= $tahun ?></h3></div>
 <thead>
   <tr>
     <th class="text-center blue" rowspan="2">No</th>

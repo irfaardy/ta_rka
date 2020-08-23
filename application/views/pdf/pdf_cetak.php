@@ -1,18 +1,33 @@
 <link rel="stylesheet" href="<?= assets('css/adminlte.min.css') ?>">
 <title>Laporan Pengajuan Fasilitas</title>
+<style type="text/css">
+  .blue{
+              background-image: url('<?= assets('img/blue.jpg') ?>') !important; 
+            background-size: cover;
+    }
+        
+  .gray {
+      background-image: url('<?= assets('img/gray.png') ?>') !important; 
+      background-size: cover;
+  }
+  .white {
+      background-color: white;
+  }
+</style>
+ <div align="center"> <h3>LAPORAN PENGAJUAN FASILITAS TAHUN <?= $tahun ?></h3></div>
 <table width="100%" class="table table-bordered">
 <thead>
-         <tr>
-          <th class="text-nowrap">No</th>
-          <th class="text-nowrap">Jenis Peralatan Laboratorium</th>
-          <th class="text-nowrap">Banyaknya</th>
-          <th class="text-nowrap">Anggaran(Rp)</th>
+         <tr bgcolor="lightblue" align="center">
+          <th class="text-nowrap blue" align="center">No</th>
+          <th class="text-nowrap blue" align="center">Jenis Peralatan Laboratorium</th>
+          <th class="text-nowrap blue" align="center">Banyaknya</th>
+          <th class="text-nowrap blue" align="center">Anggaran(Rp)</th>
           <?php if(AuthData()->level == 3):?>
-            <th class="text-nowrap">Tahun</th>
-            <th class="text-nowrap">Status</th>
+            <th class="text-nowrap blue" align="center">Tahun</th>
+            <th class="text-nowrap blue" >Status</th>
           <?php endif;?>
           <?php if(AuthData()->level == 4):?>
-          <th class="text-nowrap">Total(Rp)</th>
+          <th class="text-nowrap blue" align="center">Total(Rp)</th>
             <?php endif;?>
         </tr>
       </thead>
@@ -42,3 +57,28 @@
             </tr>
         </tfoot>
     </table>
+    <table width="100%">
+    <tr>
+        <td width="75%"></td>
+        <td width="25%"> <table >
+        <tr>
+            <td align="right">Cimahi, <?= now() ?></td>
+        </tr>
+        <tr>
+            <td align="right">Ketua Program Studi Informatika</td>
+        </tr> 
+        <tr>
+            <td>
+                <br>
+                <br>
+                <br>
+                <br>
+
+            </td>
+        </tr> 
+        <tr>
+            <td align="right">Wina Witanti S.T., M.T.,</td>
+        </tr>
+    </table></td>
+    </tr>
+</table>

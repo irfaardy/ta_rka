@@ -115,7 +115,7 @@ class Fasilitas extends CI_Controller {
         }
         $this->pdf->setPaper('A4', 'landscape');
         $this->pdf->filename = "Laporan_Fasilitas_".$this->input->get('tahun').".pdf";
-        $this->pdf->load_view('pdf/pdf_cetak', ['data'=>$data]);
+        $this->pdf->load_view('pdf/pdf_cetak', ['data'=>$data,'tahun'=>$this->input->get('tahun')]);
 
 	}
 	public function approve($id){

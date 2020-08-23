@@ -13,7 +13,10 @@ class Rka extends CI_Controller {
     $params = array("title" => "Rencana Kerja Anggaran", 'rka' => $rka);
 		$this->load->template('rka/index', $params);
 	}
+	public function cetak(){
 
+		$this->load->view('pdf/pdf_rka');
+	}
 	public function ditolak() {
 		$rka = $this->perencanaan->getAll(['2']);
     $params = array("title" => "Rencana Kerja Anggaran", 'rka' => $rka);

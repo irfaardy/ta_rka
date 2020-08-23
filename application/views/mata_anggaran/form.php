@@ -13,8 +13,8 @@
 
         <hr class="my-4">
         <div class="form-group text-right">
-          <a href="<?= base_url('/MataAnggaran') ?>" type="submit" class="btn btn-warning">Batal</a>
           <button type="submit" class="btn btn-primary">Simpan</button>
+          <a href="<?= base_url('/MataAnggaran') ?>" class="btn btn-warning ml-2">Batal</a>
         </div>
       </form>
     </div>

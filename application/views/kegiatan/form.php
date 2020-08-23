@@ -17,7 +17,7 @@
         <hr class="my-4">
         <div class="form-group text-right">
           <button type="submit" class="btn btn-primary">Tambah</button>
-          <a href="<?php echo base_url('/Kegiatan/index/'.$perencanaan->no) ?>" class="btn btn-default ml-1">Batal</a>
+          <a href="<?php echo base_url('/Kegiatan/index/'.$perencanaan->no) ?>" class="btn btn-danger ml-2">Batal</a>
         </div>
       </form>
     </div>

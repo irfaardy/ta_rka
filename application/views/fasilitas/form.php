@@ -14,6 +14,7 @@
         <hr class="my-4">
         <div class="form-group text-right">
           <button type="submit" class="btn btn-primary">Simpan</button>
+          <a class="btn btn-danger ml-2" href="<?php echo base_url("/Fasilitas") ?>">Batal</a>
         </div>
       </form>
     </div>

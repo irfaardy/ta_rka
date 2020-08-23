@@ -4,7 +4,7 @@
 			<form method="POST" action="<?= $url ?>">
 				<!-- initial object (null or not) -->
         <?php $data_user = userFields($user); ?>
-				
+
 				<!-- set user ID -->
 				<input type="hidden" name="id" value="<?php echo $data_user->id ?>">
 
@@ -14,6 +14,7 @@
         <hr class="my-4">
         <div class="form-group text-right">
           <button type="submit" class="btn btn-primary">Simpan</button>
+					<a class="btn btn-danger ml-2" href="<?php echo base_url("/Users") ?>">Batal</a>
         </div>
 			</form>
 		</div>

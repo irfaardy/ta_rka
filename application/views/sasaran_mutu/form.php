@@ -15,10 +15,8 @@
 
         <hr class="my-4">
         <div class="form-group text-right">
-          <?php if ($obj != null): ?>
-            <a class="btn btn-danger mr-2" href="<?php echo base_url("/SasaranMutu") ?>">Batal</a>
-          <?php endif; ?>
           <button type="submit" class="btn btn-primary">Simpan</button>
+          <a class="btn btn-danger ml-2" href="<?php echo base_url("/SasaranMutu") ?>">Batal</a>
         </div>
       </form>
     </div>

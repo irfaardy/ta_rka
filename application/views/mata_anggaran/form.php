@@ -1,9 +1,6 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-lg-12">
-      <h4><?= empty($obj)?"Input":"Ubah"?> Mata Anggaran</h4>
-      <hr class="mb-4">
-
       <form class="" action="<?php echo $action ?>" method="post">
         <!-- initial object (null or not) -->
         <?php $mata_anggaran = mataAnggaranFields($obj); ?>

@@ -16,13 +16,13 @@ class MataAnggaran extends CI_Controller {
 	}
 
 	function tambah() {
-		$params = array("title" => "Mata Anggaran", "obj" => null, "action" => base_url("/MataAnggaran/save"));
+		$params = array("title" => "Tambah Mata Anggaran", "obj" => null, "action" => base_url("/MataAnggaran/save"));
 		$this->load->template('mata_anggaran/form', $params);
 	}
 
 	function edit($id) {
 		$obj = $this->mata_anggaran->get($id);
-		$params = array("title" => "Mata Anggaran", "obj" => $obj, "action" => base_url("/MataAnggaran/update/$id"));
+		$params = array("title" => "Ubah Mata Anggaran", "obj" => $obj, "action" => base_url("/MataAnggaran/update/$id"));
 		$this->load->template('mata_anggaran/form', $params);
 	}
 

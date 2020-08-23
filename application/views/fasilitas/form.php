@@ -1,9 +1,6 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-lg-12">
-      <h4>Input Fasilitas</h4>
-      <hr class="mb-4">
-
       <form class="" action="<?php echo $action ?>" method="post">
         <!-- initial object (null or not) -->
         <?php $fasilitas = fasilitasFields($obj); ?>

@@ -1,9 +1,6 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-lg-12">
-      <h4>Tambah Detail Rencana Kerja Anggaran</h4>
-      <hr class="mb-4">
-
       <form class="" action="<?php echo $action ?>" method="post">
         <!-- set jurusan -->
         <input type="hidden" name="jurusan_id" value="<?php echo AuthData()->jurusan_id ?>">

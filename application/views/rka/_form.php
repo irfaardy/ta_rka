@@ -1,4 +1,4 @@
-<div class="form-group">
+<!-- <div class="form-group">
   <div class="row">
     <div class="col-3">
       <label for="">No</label>
@@ -7,7 +7,7 @@
       <input type="text" class="form-control" name="no" value="<?php echo $rka->no ?>" <?php echo ($rka->no == null ? "":"readonly") ?>/>
     </div>
   </div>
-</div>
+</div> -->
 <div class="form-group">
   <div class="row">
     <div class="col-3">

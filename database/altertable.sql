@@ -1,0 +1,1 @@
+ALTER TABLE `tb_perencanaan` CHANGE `status_kajur` `status_kajur` VARCHAR(25) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT '0';

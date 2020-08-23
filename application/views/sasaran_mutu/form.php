@@ -3,7 +3,7 @@
     <div class="col-lg-12">
       <h4>Input Sasaran Mutu</h4>
       <hr class="mb-4">
-      <form class="" action="<?php echo base_url($action) ?>" method="post">
+      <form class="" action="<?php echo $action ?>" method="post">
         <!-- set jurusan -->
         <input type="hidden" name="jurusan_id" value="<?php echo AuthData()->jurusan_id ?>">
 

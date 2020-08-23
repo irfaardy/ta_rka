@@ -44,7 +44,12 @@ class Fasilitas extends CI_Controller {
 	function edit($id) {
 		$this->auth->protect([2,3]);
 		$obj = $this->fasilitas->get($id);
-		$params = array("title" => "Ubah Fasilitas Laboratorium", "obj" => $obj, "action" => base_url("/Fasilitas/update/$id"));
+		if ($this->input->get('f') == "ditolak") {
+			$action = base_url("/Fasilitas/update/$id?f=ditolak");
+		}else{
+			$action = base_url("/Fasilitas/update/$id");
+		}
+		$params = array("title" => "Ubah Fasilitas Laboratorium", "obj" => $obj, "action" => $action);
 		$this->load->template('fasilitas/form', $params);
 	}
 
@@ -63,13 +68,23 @@ class Fasilitas extends CI_Controller {
 
 	function update($id) {
 		$this->auth->protect([2,3]);
-		if($this->fasilitas->update($id)){
+		if($this->fasilitas->update($id, $this->input->get('f'))){
 			$this->session->set_flashdata('success','Berhasil Mengubah data Fasilitas.');
 
-			return redirect(base_url('/Fasilitas'));
+			if ($this->input->get('f') == 'ditolak') {
+				return redirect(base_url('/Fasilitas/ditolak'));
+			}else{
+				return redirect(base_url('/Fasilitas'));
+			}
+
 		} else{
 			$this->session->set_flashdata('fail','Gagal Mengubah data Fasilitas.');
-			return redirect(base_url('/Fasilitas/tambah'));
+
+			if ($this->input->get('f') == 'ditolak') {
+				return redirect(base_url("/Fasilitas/edit/$id?f=ditolak"));
+			}else{
+				return redirect(base_url("/Fasilitas/edit/$id"));
+			}
 		}
 	}
 
@@ -77,10 +92,13 @@ class Fasilitas extends CI_Controller {
 		$this->auth->protect([2]);
 		if($this->fasilitas->delete($id)){
 			$this->session->set_flashdata('success','Berhasil Menghapus data Fasilitas.');
-
-			return redirect(base_url('/Fasilitas'));
 		} else{
 			$this->session->set_flashdata('fail','Gagal Menghapus data Fasilitas.');
+		}
+
+		if ($this->input->get('f') == 'ditolak') {
+			return redirect(base_url('/Fasilitas/ditolak'));
+		}else{
 			return redirect(base_url('/Fasilitas'));
 		}
 	}

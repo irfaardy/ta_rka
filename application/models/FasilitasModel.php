@@ -32,10 +32,14 @@ class FasilitasModel extends CI_Model {
 		}
 	}
 
-  public function update($id) {
+  public function update($id, $f = null) {
     $params = $this->input->post();
     $params['jurusan_id'] = $this->auth->user()->jurusan_id;
     $params['anggaran'] = $this->removeMasking($params['anggaran']);
+
+    if ($f == null) {
+      $params['updated_by'] = $this->auth->user()->id;
+    }
 
 		try{
       $this->db->where($this->primary, $id);

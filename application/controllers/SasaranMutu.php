@@ -16,13 +16,13 @@ class SasaranMutu extends CI_Controller {
 	}
 
 	function tambah() {
-		$params = array("title" => "Tambah Sasaran Mutu", "obj" => null, "action" => "/SasaranMutu/save");
+		$params = array("title" => "Tambah Sasaran Mutu", "obj" => null, "action" => base_url("/SasaranMutu/save"));
 		$this->load->template('sasaran_mutu/form', $params);
 	}
 
 	function edit($id) {
 		$obj = $this->sasaran_mutu->get($id);
-		$params = array("title" => "Ubah Sasaran Mutu", "obj" => $obj, "action" => "/SasaranMutu/update/$id");
+		$params = array("title" => "Ubah Sasaran Mutu", "obj" => $obj, "action" => base_url("/SasaranMutu/update/$id"));
 		$this->load->template('sasaran_mutu/form', $params);
 	}
 

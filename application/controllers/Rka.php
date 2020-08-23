@@ -28,14 +28,14 @@ class Rka extends CI_Controller {
 
 	function tambah() {
 		$sasaran_mutu = $this->sasaran_mutu->getAll();
-		$params = array("title" => "Tambah Rencana Kerja Anggaran", "obj" => null, "action" => "/Rka/save", 'sasaran_mutu' => $sasaran_mutu);
+		$params = array("title" => "Tambah Rencana Kerja Anggaran", "obj" => null, "action" => base_url("/Rka/save"), 'sasaran_mutu' => $sasaran_mutu);
 		$this->load->template('rka/form', $params);
 	}
 
 	function edit($id) {
 		$sasaran_mutu = $this->sasaran_mutu->getAll();
 		$obj = $this->perencanaan->get($id);
-		$params = array("title" => "Ubah Rencana Kerja Anggaran", "obj" => $obj, "action" => "/Rka/update/$id", 'sasaran_mutu' => $sasaran_mutu);
+		$params = array("title" => "Ubah Rencana Kerja Anggaran", "obj" => $obj, "action" => base_url("/Rka/update/$id"), 'sasaran_mutu' => $sasaran_mutu);
 		$this->load->template('rka/form', $params);
 	}
 

@@ -61,12 +61,6 @@
           <?php  $no++; $total+=$sub_total ?>
         <?php endforeach; ?>
       </tbody>
-      <tfoot>
-            <tr>
-                <th colspan="<?php if(AuthData()->level == 2): echo 5; elseif(AuthData()->level == 4): echo 4; endif;?>" style="text-align:right">Total:</th>
-                <th>Rp.<?= number_format($total) ?></th>
-            </tr>
-        </tfoot>
     </table>
   </div>
 <?php else: ?>

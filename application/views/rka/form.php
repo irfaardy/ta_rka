@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-lg-12">
-      <form class="" action="<?php echo base_url($action) ?>" method="post">
+      <form class="" action="<?php echo $action ?>" method="post">
         <!-- set jurusan -->
         <input type="hidden" name="jurusan_id" value="<?php echo AuthData()->jurusan_id ?>">
 

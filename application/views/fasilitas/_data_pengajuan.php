@@ -7,13 +7,13 @@
           <th class="text-nowrap">Jenis Peralatan Laboratorium</th>
           <th class="text-nowrap">Banyaknya</th>
           <th class="text-nowrap">Anggaran(Rp)</th>
-       
+
           <th class="text-nowrap">Total(Rp)</th>
           <?php if(AuthData()->level == 2 || AuthData()->level == 3 ):?>
             <th class="text-nowrap">Status</th>
           <?php endif;?>
-         
-       
+
+
         </tr>
       </thead>
       <tbody>
@@ -24,7 +24,7 @@
             <td><?= ($fasilitas->banyaknya) ? number_format($fasilitas->banyaknya) : "-"; ?></td>
             <td><?= ($fasilitas->anggaran) ? "Rp".number_format($fasilitas->anggaran) : "-"; ?></td>
             <td><?= "Rp".number_format($sub_total) ?></td>
-           
+
             <td align="center" style="min-width: 200px;">
               <?php if($fasilitas->status == "DITERIMA"):?>
                 <span class="badge badge-success"><i class="fas fa-check-circle mr-1"></i> DITERIMA</span>
@@ -34,16 +34,10 @@
                   <span class="badge badge-secondary"><i class="fas fa-sync fa-spin mr-1"></i> PROSES PENGAJUAN</span>
                  <?php endif;?>
             </td>
-           
+
           <?php  $no++; $total+=$sub_total ?>
         <?php endforeach; ?>
       </tbody>
-      <tfoot>
-            <tr>
-                <th colspan="<?php if(AuthData()->level == 2): echo 5; elseif(AuthData()->level == 4): echo 4; endif;?>" style="text-align:right">Total:</th>
-                <th>Rp.<?= number_format($total) ?></th>
-            </tr>
-        </tfoot>
     </table>
   </div>
 <?php else: ?>

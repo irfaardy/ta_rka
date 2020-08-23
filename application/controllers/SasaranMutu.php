@@ -9,7 +9,8 @@ class SasaranMutu extends CI_Controller {
 		$this->auth->protect([3,5]);
 	}
 	public function index() {
-		$sasaran_mutu = $this->sasaran_mutu->getAll();
+		$year = $this->input->get('tahun');
+		$sasaran_mutu = $this->sasaran_mutu->getAll($year);
     $params = array("title" => "Sasaran Mutu", 'sasaran_mutu' => $sasaran_mutu);
 		$this->load->template('sasaran_mutu/index', $params);
 	}

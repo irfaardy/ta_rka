@@ -1,5 +1,17 @@
 <?php if ($obj != null): ?>
   <div class="mt-5">
+    <div class="row mb-2">
+      <div class="col-2">
+        <form id="filter-year" action="<?php echo base_url('/SasaranMutu') ?>" method="get">
+          <select class="form-control" name="tahun" onchange="submitForm()">
+            <option value="">--Pilih Tahun--</option>
+            <?php for ($i=2015; $i <= date("Y"); $i++): ?>
+              <option value="<?php echo $i ?>" <?php echo selectOptionSelected("2020", $_GET['tahun']) ?>><?php echo $i ?></option>
+            <?php endfor; ?>
+          </select>
+        </form>
+      </div>
+    </div>
     <table class="table table-bordered table-striped display nowrap" data-table id="sasaran_mutu">
       <thead>
         <tr>
@@ -56,3 +68,9 @@
     <h4>Data Kosong</h4>
   </div>
 <?php endif; ?>
+
+<script type="text/javascript">
+  function submitForm() {
+    $("#filter-year").submit();
+  }
+</script>

@@ -3,7 +3,7 @@
     <div class="col-lg-12">
       <h4>Input Sasaran Mutu</h4>
       <hr class="mb-4">
-      <form class="" action="<?php echo $action ?>" method="post">
+      <form class="" action="<?php echo base_url($action) ?>" method="post">
         <!-- set jurusan -->
         <input type="hidden" name="jurusan_id" value="<?php echo AuthData()->jurusan_id ?>">
 
@@ -15,6 +15,9 @@
 
         <hr class="my-4">
         <div class="form-group text-right">
+          <?php if ($obj != null): ?>
+            <a class="btn btn-danger mr-2" href="<?php echo base_url("/SasaranMutu") ?>">Batal</a>
+          <?php endif; ?>
           <button type="submit" class="btn btn-primary">Simpan</button>
         </div>
       </form>

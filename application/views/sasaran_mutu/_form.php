@@ -4,6 +4,7 @@
       <label for="">Sasaran Mutu</label>
     </div>
     <div class="col-9">
+      <input type="hidden" class="form-control" name="tahun" value="<?php echo date("Y") ?>" />
       <input type="text" class="form-control" name="sarmut" value="<?php echo $sarmut ?>" />
     </div>
   </div>

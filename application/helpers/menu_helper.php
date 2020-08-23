@@ -124,7 +124,7 @@ function admin_menus() {
           'user' => [4]
         ],
         [ 'text' => 'Cetak Laporan RKA',
-          'url'  => base_url('#'),
+          'url'  => base_url('/Rka'),
           'user' => [4]
         ],
       ],

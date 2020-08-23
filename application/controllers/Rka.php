@@ -6,16 +6,25 @@ class Rka extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 
-		$this->auth->protect([1,2,3]);
+		$this->auth->protect([1,2,3,4]);
 	}
 	public function index() {
 		$rka = $this->perencanaan->getAll();
+		// var_dump($rka); exit();
     $params = array("title" => "Rencana Kerja Anggaran", 'rka' => $rka);
 		$this->load->template('rka/index', $params);
 	}
 	public function cetak(){
-
-		$this->load->view('pdf/pdf_rka');
+		if(empty($this->input->get('tahun'))){
+			$this->session->set_flashdata('fail','Mohon pilih tahun.');
+			return redirect(base_url('/Rka'));
+		}
+		$rka = $this->perencanaan->getTahun($this->input->get('tahun'));
+		if(count($rka) <= 0){
+			$this->session->set_flashdata('fail','Data tahun '.$this->input->get('tahun').' masih kosong.');
+			return redirect(base_url('/Rka'));
+		}
+		$this->load->view('pdf/pdf_rka',['data' => $rka,'tahun' => $this->input->get('tahun')]);
 	}
 	public function ditolak() {
 		$rka = $this->perencanaan->getAll(['2']);

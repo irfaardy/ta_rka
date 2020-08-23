@@ -29,7 +29,7 @@ class SasaranMutu extends CI_Controller {
 	function save() {
 		if($this->sasaran_mutu->create()){
 			$this->session->set_flashdata('success','Berhasil Menambahkan data sasaran mutu.');
-
+			
 			return redirect(base_url('/SasaranMutu'));
 		} else{
 			$this->session->set_flashdata('fail','Gagal menambahkan data sasaran mutu.');

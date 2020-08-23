@@ -21,7 +21,7 @@ class Kegiatan extends CI_Controller {
 		$perencanaan = $this->perencanaan->get($no_perencanaan);
 		$params = array("title" => "Tambah Rencana Kerja Anggaran",
 			"obj" => [],
-			"action" => "/Kegiatan/save/$no_perencanaan",
+			"action" => base_url("/Kegiatan/save/$no_perencanaan"),
 			"perencanaan" => $perencanaan,
 			"mata_anggaran" => $mata_anggaran);
 		$this->load->template('kegiatan/form', $params);
@@ -33,7 +33,7 @@ class Kegiatan extends CI_Controller {
 		$obj = $this->detail_kegiatan->get($id);
 		$params = array("title" => "Ubah Rencana Kerja Anggaran",
 			"obj" => $obj,
-			"action" => "/Kegiatan/update/$no_perencanaan/$id",
+			"action" => base_url("/Kegiatan/update/$no_perencanaan/$id"),
 			"perencanaan" => $perencanaan,
 			"mata_anggaran" => $mata_anggaran);
 		$this->load->template('kegiatan/form', $params);

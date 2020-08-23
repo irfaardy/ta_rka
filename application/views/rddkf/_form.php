@@ -15,8 +15,8 @@
 <div class="form-group">
   <div class="row">
     <div class="col-3">
-      <label for="">File</label><br><small class="font-italic">Maksimal 10 MB <br> Harus berupa jpg,png,pdf,docx,atau doc</small>
-    </div>
+      <label for="">File</label><br><small class="font-italic">Maksimal 10 MB <br> Harus berupa jpg, jpeg, png, pdf, docx, atau doc</small>
+    </div> 
     <div class="col-9">
     <input type="file" title="Maksimal 10 MB dan harus berupa jpg,png,pdf,docx,atau doc" class="form-control" name="rddkf"  accept="image/jpeg,image/gif,image/png,application/pdf,image/x-eps,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
      <?php if ($obj != null): 

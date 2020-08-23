@@ -23,6 +23,7 @@
     </div>
   </div>
 </div>
+<input type="hidden" name="tahun" value="<?= date("Y") ?>">
 <div class="form-group">
   <div class="row">
     <div class="col-3">
@@ -30,21 +31,6 @@
     </div>
     <div class="col-9">
       <input type="text" class="form-control" name="kegiatan" value="<?php echo $rka->kegiatan ?>" />
-    </div>
-  </div>
-</div>
-<div class="form-group">
-  <div class="row">
-    <div class="col-3">
-      <label for="">Detail Kegiatan</label>
-    </div>
-    <div class="col-9">
-      <select class="form-control" name="no_sarmut">
-        <option value="">--Pilih Detail Kegiatan--</option>
-        <?php foreach ($sasaran_mutu as $obj): ?>
-          <option value="<?php echo $obj->no_sarmut ?>" <?php echo selectOptionSelected($obj->no_sarmut, $rka->no_sarmut) ?>><?php echo $obj->sarmut ?></option>
-        <?php endforeach; ?>
-      </select>
     </div>
   </div>
 </div>

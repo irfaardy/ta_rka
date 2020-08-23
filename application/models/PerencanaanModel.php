@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 // status kajur :
-//   0 : Belum di review,
+//   0 or new : Belum di review,
 //   1 : Disetujui,
 //   2 : Ditolak
 
@@ -18,12 +18,15 @@ class PerencanaanModel extends CI_Model {
     $this->db->from($this->table);
     $this->db->join('tb_sasaran_mutu', 'tb_sasaran_mutu.no_sarmut = tb_perencanaan.no_sarmut');
     $this->db->where('tb_perencanaan.jurusan_id', $jurusan_id);
-    if ($level != "3") {
-      $this->db->where('tb_perencanaan.user_level', $level);
+
+    if ($level != "4" ) {
+      if ($level != "3" ) {
+        $this->db->where('tb_perencanaan.user_level', $level);
+      }
     }
-    if ($level == "3") {
-      $this->db->where_in('tb_perencanaan.status_kajur', $status);
-    }
+      if ($level == "3") {
+        $this->db->where_in('tb_perencanaan.status_kajur', $status);
+      }
     return $this->db->get()->result();
   }
 
@@ -31,6 +34,10 @@ class PerencanaanModel extends CI_Model {
     $this->db->where('jurusan_id', AuthData()->jurusan_id);
     $this->db->where('user_level', AuthData()->level);
     return $this->db->where($this->primary, $id)->get($this->table)->row();
+  }
+  public function getTahun($tahun) {
+    $this->db->where('jurusan_id', AuthData()->jurusan_id);
+    return $this->db->where('tahun', $tahun)->get($this->table)->result();
   }
 
   public function cekKodeRekening($id) {

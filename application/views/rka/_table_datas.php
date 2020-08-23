@@ -42,10 +42,10 @@
             <td class="text-center"><?php echo ($perencanaan->oktober ? "<i class='fas fa-check'>" : "-") ?></td>
             <td class="text-center"><?php echo ($perencanaan->november ? "<i class='fas fa-check'>" : "-") ?></td>
             <td class="text-center"><?php echo ($perencanaan->desember ? "<i class='fas fa-check'>" : "-") ?></td>
-
             <!-- actions -->
             <td style="min-width: 200px;" class="text-center">
-              <?php if ($perencanaan->status_kajur == '0'): ?>
+            <?php if(AuthData()->level != 4): ?>
+              <?php if ($perencanaan->status_kajur == FALSE OR empty($perencanaan->status_kajur)): ?>
                 <a href="<?php echo base_url('/Kegiatan/index/'.$perencanaan->no) ?>" class="btn btn-xs btn-default">
                   <i class="fas fa-clipboard-list fa-fw"></i>
                   Detail Kegiatan
@@ -53,8 +53,12 @@
               <?php elseif (in_array(AuthData()->level, [3])): ?>
                 <b><?php echo status_kajur($perencanaan->status_kajur) ?></b>
               <?php endif; ?>
+              
+                
+             <?php endif; ?>
               <?php if (in_array(AuthData()->level, [1,2])): ?>
                 <?php if ($perencanaan->status_kajur == 0): ?>
+                  
                   <a href="<?php echo base_url('/Rka/edit/'.$perencanaan->no) ?>" class="btn btn-xs btn-warning">
                     <i class="fas fa-edit fa-fw"></i>
                     Edit

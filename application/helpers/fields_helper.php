@@ -75,7 +75,7 @@ function checked($rka, $value) {
 }
 
 function yearSelect(){
-  $mulai  =date('Y', strtotime('-20 year'));
+  $mulai  =date('Y', strtotime('-4 year'));
   $selesai = date('Y');
   $years = [];
   for($selesai; $selesai >= $mulai; $selesai--) {
@@ -123,3 +123,57 @@ function status_color($status) {
     return "";
   }
 }
+
+  function getDetailKegiatan($no){
+     $CI = &get_instance();
+     return $CI->detail_kegiatan->getAll($no);
+  }
+
+  function now(){
+    $y = date("Y");
+    $m = date("m");
+    $d = date("d");
+
+    switch($m){
+      case "01":
+        $m = "Januari";
+      break;
+      case "02":
+        $m = "Februari";
+      break;
+      case "03":
+        $m = "Maret";
+      break;
+      case "04":
+        $m = "April";
+      break;
+      case "05":
+        $m = "Mei";
+      break;
+      case "06":
+        $m = "Juni";
+      break;
+      case "07":
+        $m = "Juli";
+      break;
+      case "08":
+        $m = "Agustus";
+      break;
+      case "09":
+        $m = "September";
+      break;
+      case "10":
+        $m = "Oktober";
+      break;
+      case "11":
+        $m = "November";
+      break;
+      case "12":
+        $m = "Desember";
+      break;
+      default:
+       $m = "N/A";
+       break;
+    }
+    return $d.' '.$m.' '.$y;
+  }

@@ -13,9 +13,9 @@ class Fasilitas extends CI_Controller {
 		$where = ['tahun' => !empty($this->input->get('tahun'))?$this->input->get('tahun'):date("Y")];
 		if(AuthData()->level == 3){
 			$title = "Data Pengajuan Fasilitas Laboratorium";
-			$where['status'] = null; 
+			$where['status'] = null;
 		} else{
-			$title = "Laporan Fasilitas Laboratorium";
+			$title = "Fasilitas Laboratorium";
 		}
 		$fasilitas = $this->fasilitas->getAll($where);
 
@@ -25,26 +25,31 @@ class Fasilitas extends CI_Controller {
 	public function ditolak() {
 		$this->auth->protect([3]);
 		$where = ['tahun' => !empty($this->input->get('tahun'))?$this->input->get('tahun'):date("Y")];
-		
+
 		$title = "Data Pengajuan Fasilitas Laboratorium Ditolak";
-		$where['status'] = "DITOLAK"; 
-		
+		$where['status'] = "DITOLAK";
+
 		$fasilitas = $this->fasilitas->getAll($where);
-		
+
     	$params = array("title" => $title , 'fasilitas' => $fasilitas);
 		$this->load->template('fasilitas/index_ditolak', $params);
 	}
 
 	function tambah() {
 		$this->auth->protect([2]);
-		$params = array("title" => "Fasilitas", "obj" => null, "action" => base_url("/Fasilitas/save"));
+		$params = array("title" => "Tambah Fasilitas Laboratorium", "obj" => null, "action" => base_url("/Fasilitas/save"));
 		$this->load->template('fasilitas/form', $params);
 	}
 
 	function edit($id) {
 		$this->auth->protect([2,3]);
 		$obj = $this->fasilitas->get($id);
-		$params = array("title" => "Fasilitas", "obj" => $obj, "action" => base_url("/Fasilitas/update/$id"));
+		if ($this->input->get('f') == "ditolak") {
+			$action = base_url("/Fasilitas/update/$id?f=ditolak");
+		}else{
+			$action = base_url("/Fasilitas/update/$id");
+		}
+		$params = array("title" => "Ubah Fasilitas Laboratorium", "obj" => $obj, "action" => $action);
 		$this->load->template('fasilitas/form', $params);
 	}
 
@@ -63,13 +68,23 @@ class Fasilitas extends CI_Controller {
 
 	function update($id) {
 		$this->auth->protect([2,3]);
-		if($this->fasilitas->update($id)){
+		if($this->fasilitas->update($id, $this->input->get('f'))){
 			$this->session->set_flashdata('success','Berhasil Mengubah data Fasilitas.');
 
-			return redirect(base_url('/Fasilitas'));
+			if ($this->input->get('f') == 'ditolak') {
+				return redirect(base_url('/Fasilitas/ditolak'));
+			}else{
+				return redirect(base_url('/Fasilitas'));
+			}
+
 		} else{
 			$this->session->set_flashdata('fail','Gagal Mengubah data Fasilitas.');
-			return redirect(base_url('/Fasilitas/tambah'));
+
+			if ($this->input->get('f') == 'ditolak') {
+				return redirect(base_url("/Fasilitas/edit/$id?f=ditolak"));
+			}else{
+				return redirect(base_url("/Fasilitas/edit/$id"));
+			}
 		}
 	}
 
@@ -77,10 +92,13 @@ class Fasilitas extends CI_Controller {
 		$this->auth->protect([2]);
 		if($this->fasilitas->delete($id)){
 			$this->session->set_flashdata('success','Berhasil Menghapus data Fasilitas.');
-
-			return redirect(base_url('/Fasilitas'));
 		} else{
 			$this->session->set_flashdata('fail','Gagal Menghapus data Fasilitas.');
+		}
+
+		if ($this->input->get('f') == 'ditolak') {
+			return redirect(base_url('/Fasilitas/ditolak'));
+		}else{
 			return redirect(base_url('/Fasilitas'));
 		}
 	}
@@ -126,7 +144,7 @@ class Fasilitas extends CI_Controller {
 		$where = ['tahun' => !empty($this->input->get('tahun'))?$this->input->get('tahun'):date("Y")];
 			$title = "Status Pengajuan Fasilitas";
 		$fasilitas = $this->fasilitas->getAll($where);
-		
+
     	$params = array("title" => $title , 'fasilitas' => $fasilitas);
 		$this->load->template('fasilitas/index_pengajuan', $params);
 	}

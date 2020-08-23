@@ -19,26 +19,26 @@ class Rka extends CI_Controller {
 	}
 	public function ditolak() {
 		$rka = $this->perencanaan->getAll(['2']);
-    $params = array("title" => "Rencana Kerja Anggaran", 'rka' => $rka);
+    $params = array("title" => "Rencana Kerja Anggaran Ditolak", 'rka' => $rka);
 		$this->load->template('rka/index', $params);
 	}
 
 	public function status() {
 		$rka = $this->perencanaan->getAll();
-    $params = array("title" => "Rencana Kerja Anggaran", 'rka' => $rka);
+    $params = array("title" => "Status Rencana Kerja Anggaran", 'rka' => $rka);
 		$this->load->template('rka/status_pengajuan', $params);
 	}
 
 	function tambah() {
 		$sasaran_mutu = $this->sasaran_mutu->getAll();
-		$params = array("title" => "Rencana Kerja Anggaran", "obj" => null, "action" => "/Rka/save", 'sasaran_mutu' => $sasaran_mutu);
+		$params = array("title" => "Tambah Rencana Kerja Anggaran", "obj" => null, "action" => base_url("/Rka/save"), 'sasaran_mutu' => $sasaran_mutu);
 		$this->load->template('rka/form', $params);
 	}
 
 	function edit($id) {
 		$sasaran_mutu = $this->sasaran_mutu->getAll();
 		$obj = $this->perencanaan->get($id);
-		$params = array("title" => "Rencana Kerja Anggaran", "obj" => $obj, "action" => "/Rka/update/$id", 'sasaran_mutu' => $sasaran_mutu);
+		$params = array("title" => "Ubah Rencana Kerja Anggaran", "obj" => $obj, "action" => base_url("/Rka/update/$id"), 'sasaran_mutu' => $sasaran_mutu);
 		$this->load->template('rka/form', $params);
 	}
 

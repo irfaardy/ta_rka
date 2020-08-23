@@ -11,18 +11,18 @@ class Jurusan extends CI_Controller {
 	}
 	public function index() {
 		$jurusan = $this->jurusan->getAll();
-    	$params = array("title" => "Jurusan", 'jurusan' => $jurusan);
+    	$params = array("title" => "Kelola Jurusan", 'jurusan' => $jurusan);
 		$this->load->template('jurusan/index', $params);
 	}
 
 	function tambah() {
-		$params = array("title" => "Jurusan", "obj" => null, "action" => base_url("/jurusan/save"));
+		$params = array("title" => "Tambah Jurusan", "obj" => null, "action" => base_url("/jurusan/save"));
 		$this->load->template('jurusan/form', $params);
 	}
 
 	function edit($id) {
 		$obj = $this->jurusan->get($id);
-		$params = array("title" => "Jurusan", "obj" => $obj, "action" => base_url("/jurusan/update/$id"));
+		$params = array("title" => "Ubah Jurusan", "obj" => $obj, "action" => base_url("/jurusan/update/$id"));
 		$this->load->template('jurusan/form', $params);
 	}
 

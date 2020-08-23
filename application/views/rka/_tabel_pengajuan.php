@@ -1,5 +1,5 @@
 <?php if (true): ?>
-  <div class="mt-5">
+  <div class="mt-2">
     <table class="table table-bordered display nowrap" id="tabel-rka" data-table-no-ordering style="width: 100%;">
       <thead>
         <tr>

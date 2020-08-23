@@ -54,14 +54,18 @@
                 <b><?php echo status_kajur($perencanaan->status_kajur) ?></b>
               <?php endif; ?>
               <?php if (in_array(AuthData()->level, [1,2])): ?>
-                <a href="<?php echo base_url('/Rka/edit/'.$perencanaan->no) ?>" class="btn btn-xs btn-warning">
-                  <i class="fas fa-edit fa-fw"></i>
-                  Edit
-                </a>
-                <button class="btn btn-xs btn-danger" data-action="<?php echo base_url('/Rka/delete/'.$perencanaan->no) ?>" data-delete>
-                  <i class="fas fa-trash fa-fw"></i>
-                  Hapus
-                </a>
+                <?php if ($perencanaan->status_kajur == 0): ?>
+                  <a href="<?php echo base_url('/Rka/edit/'.$perencanaan->no) ?>" class="btn btn-xs btn-warning">
+                    <i class="fas fa-edit fa-fw"></i>
+                    Edit
+                  </a>
+                  <button class="btn btn-xs btn-danger" data-action="<?php echo base_url('/Rka/delete/'.$perencanaan->no) ?>" data-delete>
+                    <i class="fas fa-trash fa-fw"></i>
+                    Hapus
+                  </a>
+                <?php else: ?>
+                  <b><?php echo status_kajur($perencanaan->status_kajur) ?></b>
+                <?php endif; ?>
               <?php elseif(in_array(AuthData()->level, [3]) && $perencanaan->status_kajur == '0'): ?>
                 <a href="<?php echo base_url('/Rka/update_status/'.$perencanaan->no.'/1') ?>" class="btn btn-xs btn-success">
                   <i class="fas fa-check fa-fw"></i>

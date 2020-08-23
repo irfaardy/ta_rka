@@ -23,7 +23,7 @@ class Users extends CI_Controller {
 	{
 		$daftar_jurusan = $this->jurusan->getAll();
 		$user = $this->check_user();
-		$this->load->template('kelola_user/form',['user' => $user,'title' => 'Update User','url' => base_url('user/update'), 'daftar_jurusan' => $daftar_jurusan]);
+		$this->load->template('kelola_user/form',['user' => $user,'title' => 'Ubah User','url' => base_url('user/update'), 'daftar_jurusan' => $daftar_jurusan]);
 	}
 
 	public function update()

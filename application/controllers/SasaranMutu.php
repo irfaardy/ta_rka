@@ -9,19 +9,20 @@ class SasaranMutu extends CI_Controller {
 		$this->auth->protect([3,5]);
 	}
 	public function index() {
-		$sasaran_mutu = $this->sasaran_mutu->getAll();
+		$year = $this->input->get('tahun');
+		$sasaran_mutu = $this->sasaran_mutu->getAll($year);
     $params = array("title" => "Sasaran Mutu", 'sasaran_mutu' => $sasaran_mutu);
 		$this->load->template('sasaran_mutu/index', $params);
 	}
 
 	function tambah() {
-		$params = array("title" => "Sasaran Mutu", "obj" => null, "action" => "/SasaranMutu/save");
+		$params = array("title" => "Tambah Sasaran Mutu", "obj" => null, "action" => base_url("/SasaranMutu/save"));
 		$this->load->template('sasaran_mutu/form', $params);
 	}
 
 	function edit($id) {
 		$obj = $this->sasaran_mutu->get($id);
-		$params = array("title" => "Sasaran Mutu", "obj" => $obj, "action" => "/SasaranMutu/update/$id");
+		$params = array("title" => "Ubah Sasaran Mutu", "obj" => $obj, "action" => base_url("/SasaranMutu/update/$id"));
 		$this->load->template('sasaran_mutu/form', $params);
 	}
 

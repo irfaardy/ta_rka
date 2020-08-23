@@ -22,7 +22,7 @@ class RDDKF extends CI_Controller {
 
 	function edit($id) {
 		$obj = $this->rddkf->get($id);
-		$params = array("title" => "Ubah Data RDDKF", "obj" => $obj, "action" => base_url("/RDDKF/update/$id"));
+		$params = array("title" => "Ubah RDDKF", "obj" => $obj, "action" => base_url("/RDDKF/update/$id"));
 		$this->load->template('rddkf/form', $params);
 	}
 

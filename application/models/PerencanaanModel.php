@@ -10,7 +10,7 @@ class PerencanaanModel extends CI_Model {
   private $table = "tb_perencanaan";
   private $primary = "no";
 
-  public function getAll($status = ['0', '1']) {
+  public function getAll($status = [ '1','0']) {
     $jurusan_id = AuthData()->jurusan_id;
     $level = AuthData()->level;
 
@@ -25,8 +25,9 @@ class PerencanaanModel extends CI_Model {
       }
     }
       if ($level == "3") {
+        // $this->db->or_where('tb_perencanaan.status_kajur',null);
         $this->db->where_in('tb_perencanaan.status_kajur', $status);
-      }
+      } 
     return $this->db->get()->result();
   }
 
@@ -37,6 +38,7 @@ class PerencanaanModel extends CI_Model {
   }
   public function getTahun($tahun) {
     $this->db->where('jurusan_id', AuthData()->jurusan_id);
+    $this->db->where('status_kajur', 1);
     return $this->db->where('tahun', $tahun)->get($this->table)->result();
   }
 

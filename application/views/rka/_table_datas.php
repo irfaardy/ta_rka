@@ -70,12 +70,12 @@
                 <?php else: ?>
                   <b><?php echo status_kajur($perencanaan->status_kajur) ?></b>
                 <?php endif; ?>
-              <?php elseif(in_array(AuthData()->level, [3]) && $perencanaan->status_kajur == '0'): ?>
+              <?php elseif(in_array(AuthData()->level, [3]) && in_array($perencanaan->status_kajur, ['0',null])): ?>
                 <a href="<?php echo base_url('/Rka/update_status/'.$perencanaan->no.'/1') ?>" class="btn btn-xs btn-success">
                   <i class="fas fa-check fa-fw"></i>
                   Setujui
                 </a>
-                <a href="<?php echo base_url('/Rka/status/'.$perencanaan->no.'/2') ?>" class="btn btn-xs btn-danger">
+                <a href="<?php echo base_url('/Rka/update_status/'.$perencanaan->no.'/2') ?>" class="btn btn-xs btn-danger">
                   <i class="fas fa-times fa-fw"></i>
                   Tolak
                 </a>

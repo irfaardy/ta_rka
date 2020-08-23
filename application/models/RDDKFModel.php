@@ -7,9 +7,12 @@ class RDDKFModel  extends CI_Model {
 			[
 				'field' => 'tahun',
 				'label' => 'Tahun',
-				'rules' => 'required',
+				'rules' => "required|is_unique[tb_rddkf.tahun]",
+				'errors' => array(
+          'is_unique' => 'Data pada tahun ini sudah tersedia',
+        ),
 			],
-		
+
 		];
 	}
 
@@ -34,7 +37,6 @@ class RDDKFModel  extends CI_Model {
 	}
 
   public function update($id,$params) {
-
 		try{
 		$params['jurusan_id'] = $this->auth->user()->jurusan_id;
       	$this->db->where('kode_rddkf', $id);
@@ -55,5 +57,10 @@ class RDDKFModel  extends CI_Model {
 		} catch(\Exception $e){
 			return false;
 		}
+  }
+
+	public function cekTahun($year) {
+    $this->db->where('tahun', $year);
+    return $this->db->get($this->table)->num_rows();
   }
 }

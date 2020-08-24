@@ -17,7 +17,7 @@
             <td><?php echo ($rddkf->rddkf) ? $rddkf->rddkf : "-"; ?></td>
             <!-- actions -->
             <td style="min-width: 200px;">
-              <a href="<?= base_url('/Download/RDDKF/'.$rddkf->kode_rddkf) ?>" class="btn btn-xs btn-default">
+              <a href="<?= base_url('/Download/RDDKF/'.$rddkf->kode_rddkf) ?>" target="_blank" class="btn btn-xs btn-default">
                 <i class="fas fa-download fa-fw"></i>
                 Download
               </a>

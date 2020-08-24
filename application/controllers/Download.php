@@ -20,7 +20,20 @@ class Download extends CI_Controller {
 			$this->session->set_flashdata('fail','File RDDKF Tidak Ditemukan.');
 			return redirect(base_url('/rddkf'));
 		}
-		return force_download($nama_file,NULL);
+		if(mime_content_type($nama_file)=="application/pdf"){
+			header('Content-type: application/pdf');
+			header('Content-Disposition: inline; filename="' . $rddkf->rddkf . '"');
+			header('Content-Transfer-Encoding: binary');
+			header('Content-Length: ' . filesize($nama_file));
+			header('Accept-Ranges: bytes');
+		
+			return readfile($nama_file);
+		} elseif(mime_content_type($nama_file)=="image/jpeg" || mime_content_type($nama_file)=="image/png"){
+			 header("Content-type: image/jpeg");
+			 return readfile($nama_file);
+		} else{
+			return force_download($nama_file, NULL);
+		}
 	}
 
 }

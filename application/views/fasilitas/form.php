@@ -11,7 +11,7 @@
         <hr class="my-4">
         <div class="form-group text-right">
           <button type="submit" class="btn btn-primary">Simpan</button>
-          <?php if ($_GET['f'] == 'ditolak'): ?>
+          <?php $CI = &get_instance(); if ($CI->input->get('f') == 'ditolak'): ?>
             <a class="btn btn-danger ml-2" href="<?php echo base_url("/Fasilitas/ditolak") ?>">Batal</a>
           <?php endif; ?>
         </div>

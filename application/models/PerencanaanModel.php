@@ -33,7 +33,7 @@ class PerencanaanModel extends CI_Model {
 
   public function get($id) {
     $this->db->where('jurusan_id', AuthData()->jurusan_id);
-    $this->db->where('user_level', AuthData()->level);
+    // $this->db->where('user_level', AuthData()->level);
     return $this->db->where($this->primary, $id)->get($this->table)->row();
   }
   public function getTahun($tahun) {

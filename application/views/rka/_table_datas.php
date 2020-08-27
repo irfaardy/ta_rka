@@ -28,8 +28,8 @@
         <?php foreach ($obj as $perencanaan): ?>
           <tr>
             <td><?php echo $perencanaan->no ?></td>
-            <td><?php echo $perencanaan->kegiatan ?></td>
-            <td><?php echo $perencanaan->sarmut ?></td>
+            <td style="min-width:200px !important; max-width: 450px !important; white-space: normal;"><?php echo $perencanaan->kegiatan ?></td>
+            <td style="min-width:200px !important; max-width: 450px !important; white-space: normal;"><?php echo $perencanaan->sarmut ?></td>
             <td class="text-center"><?php echo ($perencanaan->januari ? "<i class='fas fa-check'>" : "-") ?></td>
             <td class="text-center"><?php echo ($perencanaan->februari ? "<i class='fas fa-check'>" : "-") ?></td>
             <td class="text-center"><?php echo ($perencanaan->maret ? "<i class='fas fa-check'>" : "-") ?></td>

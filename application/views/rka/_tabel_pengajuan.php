@@ -4,7 +4,7 @@
       <thead>
         <tr>
           <th class="text-nowrap text-center align-middle" rowspan="2">No</th>
-          <th class="text-nowrap text-center align-middle" rowspan="2">Kegiatan</th>
+          <th class="text-nowrap text-center align-middle" style="max-width: 450px !important;" rowspan="2">Kegiatan</th> 
           <th class="text-nowrap text-center" colspan="12">Bulan</th>
           <th class="text-nowrap text-center align-middle" rowspan="2">Status</th>
         </tr>
@@ -27,7 +27,7 @@
         <?php foreach ($obj as $perencanaan): ?>
           <tr class="<?php echo status_color($perencanaan->status_kajur) ?>">
             <td><?php echo $perencanaan->no ?></td>
-            <td><?php echo $perencanaan->kegiatan ?></td>
+            <td style="min-width:200px !important; max-width: 450px !important; white-space: normal;"><?php echo $perencanaan->kegiatan ?></td>
             <td class="text-center"><?php echo ($perencanaan->januari ? "<i class='fas fa-check'>" : "-") ?></td>
             <td class="text-center"><?php echo ($perencanaan->februari ? "<i class='fas fa-check'>" : "-") ?></td>
             <td class="text-center"><?php echo ($perencanaan->maret ? "<i class='fas fa-check'>" : "-") ?></td>

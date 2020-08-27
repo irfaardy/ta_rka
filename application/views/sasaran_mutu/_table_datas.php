@@ -1,7 +1,7 @@
 <div class="row mb-2">
   <div class="col-2">
     <form id="filter-year" action="<?php echo base_url('/SasaranMutu') ?>" method="get">
-      <select class="form-control" name="tahun" onchange="submitForm()">
+      <select class="form-control" style="width: 150px;" name="tahun" onchange="submitForm()">
         <option value="">--Pilih Tahun--</option>
         <?php for ($i=2015; $i <= date("Y"); $i++): ?>
           <?php if (isset($_GET['tahun'])): ?>
@@ -20,7 +20,7 @@
       <thead>
         <tr>
           <th class="text-nowrap">No</th>
-          <th class="text-nowrap">Sasaran Mutu</th>
+          <th class="text-nowrap" width="200px">Sasaran Mutu</th>
           <th class="text-nowrap">Indikator</th>
           <th class="text-nowrap">Turunan</th>
           <th class="text-nowrap">Bobot (%)</th>
@@ -39,7 +39,7 @@
         <?php $no='1'; foreach ($obj as $sasaran_mutu): ?>
           <tr>
             <td><?php echo $no ?></td>
-            <td><?php echo ($sasaran_mutu->sarmut) ? $sasaran_mutu->sarmut : "-"; ?></td>
+            <td wrap-column style="max-width: 300px !important;"><?php echo ($sasaran_mutu->sarmut) ? $sasaran_mutu->sarmut : "-"; ?></td>
             <td><?php echo ($sasaran_mutu->indikator) ? $sasaran_mutu->indikator : "-"; ?></td>
             <td><?php echo ($sasaran_mutu->turunan) ? $sasaran_mutu->turunan : "-"; ?></td>
             <td><?php echo ($sasaran_mutu->bobot) ? $sasaran_mutu->bobot : "-"; ?></td>

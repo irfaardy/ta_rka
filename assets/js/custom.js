@@ -3,7 +3,7 @@ $(document).ready(function(){
   $("[data-table]").DataTable({
     "scrollX": true
   });
-
+  $("[wrap-column]").css('white-space','normal');
   // data table
   $("[data-table-no-ordering]").DataTable({
     "scrollX": true,

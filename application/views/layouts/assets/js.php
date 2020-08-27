@@ -25,6 +25,7 @@ $(document).ready(function() {
     $('#jurusan').DataTable();
     $('#rddkf').DataTable();
     $('#fasilitas').DataTable();
+      // $('#sasaran_mutu td').css('white-space','pre-line');
 } );
 </script>
 <!-- Bootstrap 4 -->

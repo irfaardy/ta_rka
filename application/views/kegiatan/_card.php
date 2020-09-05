@@ -32,5 +32,11 @@
   </div>
   <div class="col-8">
     <p>: <?php echo money($obj->anggaran) ?></p>
+  </div> 
+  <div class="col-4">
+    <b>Total Anggaran</b>
+  </div>
+  <div class="col-8">
+    <p>: <?php echo money($obj->anggaran*$obj->qty) ?></p>
   </div>
 </div>

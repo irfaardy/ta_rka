@@ -22,6 +22,7 @@
           <th class="text-center" style="min-width: 70px">Oktober</th>
           <th class="text-center" style="min-width: 70px">November</th>
           <th class="text-center border-right" style="min-width: 70px">Desember</th>
+          <th class="text-nowrap text-center align-middle" rowspan="2">Total</th>
         </tr>
       </thead>
       <tbody>
@@ -42,6 +43,7 @@
             <td class="text-center"><?php echo ($perencanaan->oktober ? "<i class='fas fa-check'>" : "-") ?></td>
             <td class="text-center"><?php echo ($perencanaan->november ? "<i class='fas fa-check'>" : "-") ?></td>
             <td class="text-center"><?php echo ($perencanaan->desember ? "<i class='fas fa-check'>" : "-") ?></td>
+              <td class="text-center"></td>
             <!-- actions -->
             <td style="min-width: 200px;" class="text-center">
             <?php if(AuthData()->level != 4): ?>

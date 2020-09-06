@@ -58,7 +58,16 @@ function admin_menus() {
       'url'  => base_url('/Rka/status'),
       'dropdown_menus' => null,
       'user' => [1]
-    ),
+    ), [ 'text' => 'Status Pengajuan Rka',
+          'url'  => base_url('/Rka/status'),
+          'icon' => 'fas fa-clipboard-check',
+          'user' => [2]
+        ],
+        [ 'text' => 'Status Pengajuan Fasilitas',
+          'url'  => base_url('/Fasilitas/status'),
+          'icon' => 'fas fa-clipboard-check',
+          'user' => [2]
+        ],
     array(
       'text' => 'Status Pengajuan',
       'icon' => 'fas fa-clipboard-list',
@@ -73,7 +82,7 @@ function admin_menus() {
           'user' => [4]
         ],
       ],
-      'user' => [2]
+      'user' => [4]
     ),
     array(
      'text' => 'Pengajuan RKA',
@@ -114,22 +123,15 @@ function admin_menus() {
       'dropdown_menus' => null,
       'user' => [2, 1, 3]
     ),
-    array(
-      'text' => 'Cetak Laporan',
-      'icon' => 'fas fa-print',
-      'url'  => base_url('#'),
-      'dropdown_menus' => [
-        [ 'text' => 'Cetak Laporan Fasilitas',
+    array('text' => 'Cetak Laporan Fasilitas',
           'url'  => base_url('/Fasilitas'),
+          'icon' => 'fas fa-print',
+          'user' => [4]),
+      array( 'text' => 'Cetak Laporan RKA',
+          'url'  => base_url('/Rka'), 
+          'icon' => 'fas fa-print',
           'user' => [4]
-        ],
-        [ 'text' => 'Cetak Laporan RKA',
-          'url'  => base_url('/Rka'),
-          'user' => [4]
-        ],
-      ],
-      'user' => [4]
-    ),
+        ),
     array(
       'text' => 'Kelola RDDKF',
       'icon' => 'fas fa-bars',

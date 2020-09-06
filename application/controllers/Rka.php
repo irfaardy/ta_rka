@@ -39,7 +39,8 @@ class Rka extends CI_Controller {
 	}
 
 	function tambah() {
-		$sasaran_mutu = $this->sasaran_mutu->getAll();
+		$year = date('Y');
+		$sasaran_mutu = $this->sasaran_mutu->getAll($year);
 		$params = array("title" => "Tambah Rencana Kerja Anggaran", "obj" => null, "action" => base_url("/Rka/save"), 'sasaran_mutu' => $sasaran_mutu);
 		$this->load->template('rka/form', $params);
 	}

@@ -7,6 +7,7 @@
           <th class="text-nowrap text-center align-middle" rowspan="2">Kegiatan</th>
           <th class="text-nowrap text-center align-middle" rowspan="2">Sasaran Mutu</th>
           <th class="text-nowrap text-center" colspan="12">Bulan</th>
+          <th class="text-nowrap text-center" rowspan="2">Anggaran (Rp.)</th>
           <th class="text-nowrap text-center align-middle" rowspan="2">&nbsp;</th>
         </tr>
         <tr>
@@ -25,9 +26,9 @@
         </tr>
       </thead>
       <tbody>
-        <?php foreach ($obj as $perencanaan): ?>
+        <?php $i=1; $total=0; foreach ($obj as $perencanaan): ?>
           <tr>
-            <td><?php echo $perencanaan->no ?></td>
+            <td><?php echo $i ?></td>
             <td style="min-width:200px !important; max-width: 450px !important; white-space: normal;"><?php echo $perencanaan->kegiatan ?></td>
             <td style="min-width:200px !important; max-width: 450px !important; white-space: normal;"><?php echo $perencanaan->sarmut ?></td>
             <td class="text-center"><?php echo ($perencanaan->januari ? "<i class='fas fa-check'>" : "-") ?></td>
@@ -42,6 +43,13 @@
             <td class="text-center"><?php echo ($perencanaan->oktober ? "<i class='fas fa-check'>" : "-") ?></td>
             <td class="text-center"><?php echo ($perencanaan->november ? "<i class='fas fa-check'>" : "-") ?></td>
             <td class="text-center"><?php echo ($perencanaan->desember ? "<i class='fas fa-check'>" : "-") ?></td>
+            <td class="text-center">
+              <?php
+                $amount = totalDetailRka($perencanaan->no);
+                $total += $amount;
+                echo "Rp. ".number_format($amount);
+              ?>
+            </td>
             <!-- actions -->
             <td style="min-width: 200px;" class="text-center">
             <?php if(AuthData()->level != 4): ?>
@@ -53,12 +61,12 @@
               <?php elseif (in_array(AuthData()->level, [3])): ?>
                 <b><?php echo status_kajur($perencanaan->status_kajur) ?></b>
               <?php endif; ?>
-              
-                
+
+
              <?php endif; ?>
               <?php if (in_array(AuthData()->level, [1,2])): ?>
                 <?php if ($perencanaan->status_kajur == 0): ?>
-                  
+
                   <a href="<?php echo base_url('/Rka/edit/'.$perencanaan->no) ?>" class="btn btn-xs btn-warning">
                     <i class="fas fa-edit fa-fw"></i>
                     Edit
@@ -81,8 +89,15 @@
                 </a>
               <?php endif; ?>
             </td>
-        <?php endforeach; ?>
+        <?php $i++; endforeach; ?>
       </tbody>
+      <tfoot>
+        <tr>
+          <th colspan="15" style="text-align:right">Total Anggaran:</th>
+          <th>Rp.<?= number_format($total) ?></th>
+          <th>&nbsp;</th>
+        </tr>
+      </tfoot>
     </table>
   </div>
 <?php else: ?>

@@ -177,3 +177,12 @@ function status_color($status) {
     }
     return $d.' '.$m.' '.$y;
   }
+
+  function totalDetailRka($pengajuan_id) {
+    $ci = &get_instance();
+    $ci->load->database();
+    $sql = "SELECT SUM(anggaran) as anggaran_kegiatan FROM `tb_detail_kegiatan` where `no` = '$pengajuan_id'";
+    $q = $ci->db->query($sql);
+
+    return $q->row()->anggaran_kegiatan;
+  }

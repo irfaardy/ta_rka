@@ -9,7 +9,7 @@ class Rka extends CI_Controller {
 		$this->auth->protect([1,2,3,4]);
 	}
 	public function index() {
-		$rka = $this->perencanaan->getAll();
+		$rka = $this->perencanaan->getAll(date("Y"));
 		// var_dump($rka); exit();
     $params = array("title" => "Rencana Kerja Anggaran", 'rka' => $rka);
 		$this->load->template('rka/index', $params);

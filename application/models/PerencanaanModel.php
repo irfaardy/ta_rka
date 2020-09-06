@@ -19,15 +19,18 @@ class PerencanaanModel extends CI_Model {
     $this->db->join('tb_sasaran_mutu', 'tb_sasaran_mutu.no_sarmut = tb_perencanaan.no_sarmut');
     $this->db->where('tb_perencanaan.jurusan_id', $jurusan_id);
 
-    if ($level != "4" ) {
-      if ($level != "3" ) {
-        $this->db->where('tb_perencanaan.user_level', $level);
-      }
-    }
-      if ($level == "3") {
-        // $this->db->or_where('tb_perencanaan.status_kajur',null);
-        $this->db->where_in('tb_perencanaan.status_kajur', $status);
-      } 
+    // if ($level != "4" ) {
+    //   if ($level != "3" ) {
+    //     $this->db->where('tb_perencanaan.user_level', $level);
+    //   }
+    // }
+    // if ($level == "3") {
+      // $this->db->or_where('tb_perencanaan.status_kajur',null);
+    // }
+    $this->db->where_in('tb_perencanaan.status_kajur', $status);
+
+    $this->db->order_by('tb_perencanaan.created_at', 'DESC');
+
     return $this->db->get()->result();
   }
 

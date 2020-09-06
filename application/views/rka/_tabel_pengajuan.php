@@ -56,7 +56,7 @@
       </tbody>
       <tfoot>
           <tr>
-              <th colspan="15" style="text-align:right">Total Anggaran:</th>
+              <th colspan="14" style="text-align:right">Total Anggaran:</th>
               <th>Rp.<?= number_format($total) ?></th>
               <th>&nbsp;</th>
           </tr>
